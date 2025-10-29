@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document provides a comprehensive comparison between the current Base Mini App starter kit (`basekit-starter`, original example kept in repo) and our improved unified solution folder (`basekit-starter-improved`) as well as the full starter (`DBRO-MINI-KIT-STARTER`). The comparison highlights the limitations of the current approach and demonstrates how our solution addresses these issues while maintaining simplicity and adding comprehensive functionality.
+This document provides a comprehensive comparison between the current Base Mini App starter kit (`basekit-starter-main`, original example kept in repo) and our improved unified solution folder (`basekit-starter-improved`) as well as the full starter (`DBRO-MINI-KIT-STARTER`). The comparison highlights the limitations of the current approach and demonstrates how our solution addresses these issues while maintaining simplicity and adding comprehensive functionality.
 
 ## Feature Comparison Matrix
 

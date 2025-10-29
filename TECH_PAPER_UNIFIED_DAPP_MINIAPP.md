@@ -8,7 +8,7 @@ This technical paper presents a unified architecture solution that addresses cri
 
 ### Current Base Starter Kit Limitations
 
-The current Base Mini App starter kit (`basekit-starter`) presents several critical limitations that hinder developer adoption and create unnecessary complexity:
+The current Base Mini App starter kit (`basekit-starter-main`) presents several critical limitations that hinder developer adoption and create unnecessary complexity:
 
 #### 1. **Single-Platform Focus**
 - **Issue**: Only designed for Mini App context within Base/Farcaster apps
@@ -307,7 +307,7 @@ The Base team should consider adopting this unified approach as an official opti
 
 ## Repository Structure Note
 - Improved starter: `basekit-starter-improved/`
-- Original example (upstream reference): `basekit-starter/`
+- Original example (upstream reference): `basekit-starter-main/`
 
 - **Repository**: [DBRO-MINI-KIT-STARTER](https://github.com/your-repo/dbro-mini-kit-starter)
 - **Documentation**: Comprehensive README with setup instructions

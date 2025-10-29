@@ -28,7 +28,7 @@ This repository documents and demonstrates a unified solution that addresses key
 - Utilities: `basekit-starter-improved/utils/`
 - Styling: `basekit-starter-improved/globals.css`, Tailwind config
 
-Note: `basekit-starter/` is preserved as the original upstream example for comparison.
+Note: `basekit-starter-main/` is preserved as the original upstream example for comparison.
 
 ## Docs for deeper context
 - Technical paper: `TECH_PAPER_UNIFIED_DAPP_MINIAPP.md`

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides constructive feedback on the current Base Mini App starter kit (`basekit-starter`, preserved here as the original example) and proposes improvements based on real-world development experience. We've built an improved, unified version (`basekit-starter-improved`) and a comprehensive solution (`DBRO-MINI-KIT-STARTER`) that address the limitations we've identified and would like to share our findings with the Base team.
+This document provides constructive feedback on the current Base Mini App starter kit (`basekit-starter-main`, preserved here as the original example) and proposes improvements based on real-world development experience. We've built an improved, unified version (`basekit-starter-improved`) and a comprehensive solution (`DBRO-MINI-KIT-STARTER`) that address the limitations we've identified and would like to share our findings with the Base team.
 
 ## Current Pain Points
 

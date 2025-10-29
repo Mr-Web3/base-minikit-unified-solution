@@ -6,14 +6,14 @@
 
 > Comprehensive analysis of Base Mini App starter kit limitations with unified dApp/Mini App solution
 
-## 🎯 Purpose
+## Purpose
 This repository provides a detailed technical analysis of the current Base Mini App starter kit and presents a unified solution that addresses key limitations identified through real-world development experience.
 
 ## 📁 Repository Contents
 
 ### Code Examples
 - **`basekit-starter-improved/`** - Improved Base Mini App starter with unified features (this project)
-- **`basekit-starter/`** - Original Base Mini App starter kit example (upstream reference)
+- **`basekit-starter-main/`** - Original Base Mini App starter kit example (upstream reference)
 - **`DBRO-MINI-KIT-STARTER/`** - Complete unified dApp/Mini App solution with production-ready features
 
 ### Documentation
@@ -22,7 +22,7 @@ This repository provides a detailed technical analysis of the current Base Mini 
 - **`DETAILED_COMPARISON_TABLE.md`** - Side-by-side feature comparison
 - **`BASE_TEAM_SUMMARY.md`** - Concise summary for the Base team to review
 
-## 🚨 Key Issues Identified
+## Key Issues Identified
 
 1. **Single-Platform Focus** - Only works in Mini App context
 2. **Incomplete Wallet Integration** - Components exist but not properly integrated
@@ -32,7 +32,7 @@ This repository provides a detailed technical analysis of the current Base Mini 
 6. **Incomplete Environment Configuration** - Only 3 env vars vs 20+ comprehensive vars
 7. **Manual Manifest Management** - No automation scripts
 
-## 🚀 Unified Solution Benefits
+## Unified Solution Benefits
 
 - ✅ Single codebase for dApp + Mini App
 - ✅ Complete wallet integration with UI
@@ -43,14 +43,14 @@ This repository provides a detailed technical analysis of the current Base Mini 
 - ✅ Automated manifest management
 - ✅ Production-ready features
 
-## 🎯 Recommendations
+## Recommendations
 
 We recommend the Base team consider adopting a dual-approach strategy:
 1. **Keep current simple starter kit** for basic Mini Apps
 2. **Add comprehensive unified option** for advanced applications
 3. **Provide clear documentation** on when to use each approach
 
-## 📞 Contact
+## Contact
 
 **Developer**: Justin Taylor, Decentral Bros  
 **Website**: [justin.dbro.dev](https://justin.dbro.dev/)  
