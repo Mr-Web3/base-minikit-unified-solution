@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile navigation styles */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px; /* Add padding to prevent content from being hidden behind mobile navigation */
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111111;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80%;
+}
+
+/* LED Tracer Animation */
+.led-tracer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, transparent, #1bf696, transparent);
+  background-size: 200% 100%;
+  animation: led-sweep 3s linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.led-tracer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, transparent, #1bf696, transparent);
+  background-size: 200% 100%;
+  animation: led-sweep 3s linear infinite reverse;
+  opacity: 0.6;
+}
+
+@keyframes led-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

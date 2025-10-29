@@ -1,0 +1,955 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* App brand colors */
+  --app-background: #111111;
+  --app-foreground: #ffffff;
+  --app-foreground-muted: #b0b0b0;
+  --app-accent: #1bf696;
+  --app-accent-hover: #13e68a;
+  --app-accent-active: #0fcf6a;
+  --app-accent-light: #e6fff4;
+  --app-gray: #222222;
+  --app-gray-dark: #181818;
+  --app-card-bg: #181818;
+  --app-card-border: #222222;
+
+  /* OnchainKit overrides for wallet/connect/dropdown */
+  --ock-font-family: "Geist", sans-serif;
+  --ock-border-radius: 1rem;
+  --ock-border-radius-inner: 0.75rem;
+
+  /* Text colors */
+  --ock-text-inverse: #ffffff;
+  --ock-text-foreground: #ffffff;
+  --ock-text-foreground-muted: #b0b0b0;
+  --ock-text-error: #ef4444;
+  --ock-text-primary: #1bf696;
+  --ock-text-success: #22c55e;
+  --ock-text-warning: #f59e0b;
+  --ock-text-disabled: #a1a1aa;
+
+  /* Background colors */
+  --ock-bg-default: #111111;
+  --ock-bg-default-hover: #181818;
+  --ock-bg-default-active: #222222;
+  --ock-bg-alternate: #181818;
+  --ock-bg-alternate-hover: #222222;
+  --ock-bg-alternate-active: #222222;
+  --ock-bg-inverse: #ffffff;
+  --ock-bg-inverse-hover: #e6fff4;
+  --ock-bg-inverse-active: #b0b0b0;
+  --ock-bg-primary: #1bf696;
+  --ock-bg-primary-hover: #13e68a;
+  --ock-bg-primary-active: #0fcf6a;
+  --ock-bg-primary-washed: #e6fff4;
+  --ock-bg-primary-disabled: #b0b0b0;
+  --ock-bg-secondary: #181818;
+  --ock-bg-secondary-hover: #222222;
+  --ock-bg-secondary-active: #222222;
+  --ock-bg-error: #fee2e2;
+  --ock-bg-warning: #fef3c7;
+  --ock-bg-success: #dcfce7;
+  --ock-bg-default-reverse: #ffffff;
+
+  /* Icon colors */
+  --ock-icon-color-primary: #1bf696;
+  --ock-icon-color-foreground: #1bf696;
+  --ock-icon-color-foreground-muted: #b0b0b0;
+  --ock-icon-color-inverse: #111111;
+  --ock-icon-color-error: #ef4444;
+  --ock-icon-color-success: #22c55e;
+  --ock-icon-color-warning: #f59e0b;
+
+  /* Line colors */
+  --ock-line-primary: #1bf696;
+  --ock-line-default: #222222;
+  --ock-line-heavy: #b0b0b0;
+  --ock-line-inverse: #ffffff;
+
+  /* Transaction Toast/Modal customizations */
+  --ock-toast-bg: #000000;
+  --ock-toast-border: #ffffff;
+  --ock-toast-border-width: 2px;
+  --ock-toast-border-radius: 1rem;
+  --ock-toast-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --ock-toast-text: #ffffff;
+  --ock-toast-text-muted: #b0b0b0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-background: #111111;
+    --app-foreground: #ffffff;
+    --app-foreground-muted: #b0b0b0;
+    --app-accent: #1bf696;
+    --app-accent-hover: #13e68a;
+    --app-accent-active: #0fcf6a;
+    --app-accent-light: #1a2e26;
+    --app-gray: #222222;
+    --app-gray-dark: #181818;
+    --app-card-bg: #181818;
+    --app-card-border: #222222;
+
+    /* OnchainKit overrides for wallet/connect/dropdown */
+    --ock-font-family: "Geist", sans-serif;
+    /* --ock-border-radius: 1rem;
+    --ock-border-radius-inner: 0.75rem; */
+
+    /* Text colors */
+    --ock-text-inverse: #ffffff;
+    --ock-text-foreground: #ffffff;
+    --ock-text-foreground-muted: #b0b0b0;
+    --ock-text-error: #ef4444;
+    --ock-text-primary: #1bf696;
+    --ock-text-success: #22c55e;
+    --ock-text-warning: #f59e0b;
+    --ock-text-disabled: #a1a1aa;
+
+    /* Background colors */
+    --ock-bg-default: #111111;
+    --ock-bg-default-hover: #181818;
+    --ock-bg-default-active: #222222;
+    --ock-bg-alternate: #181818;
+    --ock-bg-alternate-hover: #222222;
+    --ock-bg-alternate-active: #222222;
+    --ock-bg-inverse: #ffffff;
+    --ock-bg-inverse-hover: #e6fff4;
+    --ock-bg-inverse-active: #b0b0b0;
+    --ock-bg-primary: #1bf696;
+    --ock-bg-primary-hover: #13e68a;
+    --ock-bg-primary-active: #0fcf6a;
+    --ock-bg-primary-washed: #e6fff4;
+    --ock-bg-primary-disabled: #b0b0b0;
+    --ock-bg-secondary: #181818;
+    --ock-bg-secondary-hover: #222222;
+    --ock-bg-secondary-active: #222222;
+    --ock-bg-error: #fee2e2;
+    --ock-bg-warning: #fef3c7;
+    --ock-bg-success: #dcfce7;
+    --ock-bg-default-reverse: #ffffff;
+
+    /* Icon colors */
+    --ock-icon-color-primary: #1bf696;
+    --ock-icon-color-foreground: #1bf696;
+    --ock-icon-color-foreground-muted: #b0b0b0;
+    --ock-icon-color-inverse: #111111;
+    --ock-icon-color-error: #ef4444;
+    --ock-icon-color-success: #22c55e;
+    --ock-icon-color-warning: #f59e0b;
+
+    /* Line colors */
+    --ock-line-primary: #1bf696;
+    --ock-line-default: #222222;
+    --ock-line-heavy: #b0b0b0;
+    --ock-line-inverse: #ffffff;
+
+    /* Transaction Toast/Modal customizations */
+    --ock-toast-bg: #000000;
+    --ock-toast-border: #ffffff;
+    --ock-toast-border-width: 2px;
+    --ock-toast-border-radius: 1rem;
+    --ock-toast-shadow: 0 10px 25px rgba(12, 12, 233, 0.5);
+    --ock-toast-text: #ffffff;
+    --ock-toast-text-muted: #b0b0b0;
+  }
+}
+
+* {
+  touch-action: manipulation;
+}
+
+body {
+  color: var(--app-foreground);
+  background: var(--app-background);
+  font-family: var(--font-geist-sans), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Gun Metal Shine Animation */
+@keyframes gunMetalShine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.gun-metal-shine {
+  animation: gunMetalShine 3s ease-in-out infinite;
+}
+
+/* Force OnchainKit wallet components to use our brand colors */
+/* Connect Wallet Button (when not connected) */
+/* [data-testid*="ockConnectWallet"],
+[data-testid="ockConnectButton"],
+.ockConnectWallet,
+.ock-bg-primary {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border-radius: 1rem !important;
+  border: 1px solid #1bf696 !important;
+  font-family: "Geist", sans-serif !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* Connect Wallet Button hover state */
+/* [data-testid*="ockIdentityLayout_container"],
+.ockIdentityLayout_container {
+  background-color: #181818 !important;
+  color: #1bf696 !important;
+  transform: scale(1.02) !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* Connect Wallet Button active state */
+/* [data-testid*="ockConnectWallet"]:active,
+[data-testid="ockConnectButton"]:active,
+.ockConnectWallet:active,
+.ock-bg-primary:active {
+  background-color: #222222 !important;
+  transform: scale(0.98) !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* Connected Wallet State */
+[data-testid*="ockConnectWallet_Connected"],
+.ockConnectWallet_Connected,
+.ockConnectAccountButtonInner {
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+.ock-icon-color-foreground,
+.ock-disconnect-svg {
+  color: #1bf696 !important;
+}
+
+/* More specific targeting for disconnect icon */
+svg[aria-label="ock-disconnect-svg"] path,
+svg[aria-label="ock-disconnect-svg"] .ock-icon-color-foreground {
+  fill: #ffffff !important;
+  color: #1bf696 !important;
+}
+
+/* Desktop Wallet Dropdown specific styling */
+/* [data-testid*="ockWalletDropdown"],
+.ockWalletDropdown,
+div[data-testid*="ockWalletDropdown"] {
+  background-color: #111111 !important;
+  border: 1px solid #1bf696 !important;
+  border-radius: 1rem !important;
+  font-family: "Orbitron", sans-serif !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  z-index: 50 !important;
+} */
+
+/* Desktop Wallet Dropdown content */
+/* [data-testid*="ockWalletDropdown"] *,
+.ockWalletDropdown *,
+div[data-testid*="ockWalletDropdown"] * {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+} */
+
+/* Desktop Wallet Dropdown disconnect button */
+/* [data-testid*="ockWalletDropdownDisconnect"],
+.ockWalletDropdownDisconnect,
+button[data-testid*="ockWalletDropdownDisconnect"] {
+  background-color: transparent !important;
+  color: #ef4444 !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+} */
+
+/* [data-testid*="ockWalletDropdownDisconnect"]:hover,
+.ockWalletDropdownDisconnect:hover,
+button[data-testid*="ockWalletDropdownDisconnect"]:hover {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  transform: scale(1.02) !important;
+} */
+
+/* Connected Wallet hover state */
+/* [data-testid*="ockConnectWallet_Connected"]:hover,
+.ockConnectWallet_Connected:hover,
+.ockConnectAccountButtonInner:hover {
+  color: #1bf696 !important;
+} */
+
+/* Wallet Dropdown Container */
+[data-testid*="ockBottomSheet"],
+.ockBottomSheet {
+  background-color: black !important;
+  border-top: 1px dashed #1bf696 !important;
+  font-family: "Orbitron", sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Wallet Dropdown hover state */
+/* [data-testid*="ockWalletDropdown"]:hover,
+.ockWalletDropdown:hover {
+  background-color: #181818 !important;
+  color: #1bf696 !important;
+  transform: scale(1.02) !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* Wallet Dropdown Content (popup menu) */
+[data-testid*="ockWalletDropdown"],
+.ockWalletDropdown {
+  background-color: transparent !important;
+  font-family: "Orbitron", sans-serif !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #1bf696 !important;
+  border-radius: 1rem !important;
+}
+
+/* Wallet Dropdown content elements */
+[data-testid*="ockWalletDropdown"] *,
+.ockWalletDropdown * {
+  /* background-color: transparent !important;
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important; */
+  border: none !important;
+}
+
+/* Disconnect Button in Dropdown */
+/* .ockWalletDropdownDisconnect {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 6px 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* .ockWalletDropdownDisconnect:hover {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  transform: scale(1.02) !important;
+  outline: none !important;
+  box-shadow: none !important;
+} */
+
+/* Identity Elements (address display, etc.) */
+.ockIdentity,
+.ockIdentity * {
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+/* Text color overrides for wallet components */
+.ock-text-inverse {
+  color: #ffffff !important;
+}
+
+/* Force primary color for Name component in wallet dropdown only */
+/* .ockWalletDropdown [data-testid*="ockIdentity_Text"],
+.ockWalletDropdown .ockIdentity_Text,
+.ockWalletDropdown .font-orbitron.text-primary {
+  color: #1bf696 !important;
+} */
+
+/* TransactionButton specific styling - restore original colors and make shorter */
+/* [data-testid*="ockTransactionButton"],
+.ockTransactionButton,
+button[data-testid*="ockTransactionButton"] {
+  background-color: #111111 !important;
+  border: 1px solid #1bf696 !important;
+  border-radius: var(--ock-border-radius) !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  width: auto !important;
+  height: auto !important;
+  transition: all 0.2s ease !important;
+} */
+
+/* [data-testid*="ockTransactionButton"]:hover,
+.ockTransactionButton:hover,
+button[data-testid*="ockTransactionButton"]:hover {
+  background-color: #333232 !important;
+  color: #1bf696 !important;
+  transform: scale(1.02) !important;
+} */
+
+/* [data-testid*="ockTransactionButton"]:active,
+.ockTransactionButton:active,
+button[data-testid*="ockTransactionButton"]:active {
+  background-color: var(--ock-bg-primary-active) !important;
+  transform: scale(0.98) !important;
+} */
+
+/* Transaction Toast/Modal customizations - make selectors more specific */
+[data-testid*="ockTransactionToast"],
+.ockTransactionToast,
+div[data-testid*="ockTransactionToast"] {
+  background-color: var(--ock-toast-bg) !important;
+  border: var(--ock-toast-border-width) solid var(--ock-toast-border) !important;
+  border-radius: var(--ock-toast-border-radius) !important;
+  box-shadow: var(--ock-toast-shadow) !important;
+  color: var(--ock-toast-text) !important;
+  backdrop-filter: blur(10px) !important;
+  z-index: 9999 !important;
+}
+
+/* Specific styling for transaction toast content */
+[data-testid*="ockTransactionToast"] *,
+.ockTransactionToast * {
+  color: var(--ock-toast-text) !important;
+}
+
+/* Transaction status and action styling */
+[data-testid*="ockTransactionStatus"],
+.ockTransactionStatus,
+[data-testid*="ockTransactionStatusLabel"],
+.ockTransactionStatusLabel,
+[data-testid*="ockTransactionStatusAction"],
+.ockTransactionStatusAction {
+  color: var(--ock-toast-text) !important;
+  background-color: transparent !important;
+}
+
+/* Transaction toast icon styling */
+[data-testid*="ockTransactionToastIcon"],
+.ockTransactionToastIcon {
+  color: var(--ock-icon-color-primary) !important;
+}
+
+/* Transaction toast label and action styling */
+[data-testid*="ockTransactionToastLabel"],
+.ockTransactionToastLabel,
+[data-testid*="ockTransactionToastAction"],
+.ockTransactionToastAction {
+  color: var(--ock-toast-text) !important;
+}
+
+/* Custom toast positioning and animation */
+[data-testid*="ockTransactionToast"] {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  padding: 16px !important;
+  animation: slideInRight 0.3s ease-out !important;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Toast content layout */
+[data-testid*="ockTransactionToast"] > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Toast icon container */
+[data-testid*="ockTransactionToastIcon"] {
+  flex-shrink: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Toast text container */
+[data-testid*="ockTransactionToastLabel"] {
+  flex: 1 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+/* Toast action button */
+[data-testid*="ockTransactionToastAction"] {
+  flex-shrink: 0 !important;
+  background-color: var(--ock-bg-primary) !important;
+  color: var(--ock-text-inverse) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid*="ockTransactionToastAction"]:hover {
+  background-color: var(--ock-bg-primary-hover) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Custom toast classes for specific actions */
+.custom-toast-stake,
+.custom-toast-unstake,
+.custom-toast-claim,
+.custom-toast-unwrap,
+.custom-toast-approve {
+  background-color: var(--ock-toast-bg) !important;
+  border: var(--ock-toast-border-width) solid var(--ock-toast-border) !important;
+  border-radius: var(--ock-toast-border-radius) !important;
+  box-shadow: var(--ock-toast-shadow) !important;
+  color: var(--ock-toast-text) !important;
+  backdrop-filter: blur(10px) !important;
+  z-index: 9999 !important;
+}
+
+/* OnchainKit Buy Component Styling */
+/* Remove border from input container */
+/* .ock-border-line-default {
+  border-color: transparent !important;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+} */
+
+/* Token chip button styling */
+[data-testid*="ockTokenChip_Button"],
+.ockTokenChip_Button,
+button[data-testid*="ockTokenChip_Button"] {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.5rem !important;
+  padding: 4px 12px 4px 4px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* [data-testid*="ockTokenChip_Button"]:hover,
+.ockTokenChip_Button:hover,
+button[data-testid*="ockTokenChip_Button"]:hover {
+  background-color: #1f2937 !important;
+  border-color: #1bf696 !important;
+  transform: scale(1.02) !important;
+} */
+
+[data-testid*="ockTokenChip_Button"]:active,
+.ockTokenChip_Button:active,
+button[data-testid*="ockTokenChip_Button"]:active {
+  background-color: #374151 !important;
+  transform: scale(0.98) !important;
+}
+
+/* Token image styling */
+[data-testid*="ockTokenImage_Image"],
+.ockTokenImage_Image,
+img[data-testid*="ockTokenImage_Image"] {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+}
+
+/* Buy component container styling */
+/* [data-testid*="ockBuy"],
+.ockBuy,
+div[data-testid*="ockBuy"] {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+} */
+
+/* Buy component input styling */
+/* [data-testid*="ockBuy"] input,
+.ockBuy input,
+div[data-testid*="ockBuy"] input {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.5rem !important;
+  padding: 12px 16px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+[data-testid*="ockBuy"] input:focus,
+.ockBuy input:focus,
+div[data-testid*="ockBuy"] input:focus {
+  border-color: #1bf696 !important;
+  box-shadow: 0 0 0 3px rgba(27, 246, 150, 0.2) !important;
+  outline: none !important;
+} */
+
+/* [data-testid*="ockBuy"] input::placeholder,
+.ockBuy input::placeholder,
+div[data-testid*="ockBuy"] input::placeholder {
+  color: #b0b0b0 !important;
+  opacity: 0.8 !important;
+} */
+
+/* Buy component button styling */
+/* [data-testid*="ockBuy"] button,
+.ockBuy button,
+div[data-testid*="ockBuy"] button {
+  background-color: #1bf696 !important;
+  color: #111111 !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 12px 24px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+[data-testid*="ockBuy"] button:hover,
+.ockBuy button:hover,
+div[data-testid*="ockBuy"] button:hover {
+  background-color: #13e68a !important;
+  transform: scale(1.02) !important;
+  box-shadow: 0 4px 12px rgba(27, 246, 150, 0.3) !important;
+}
+
+[data-testid*="ockBuy"] button:active,
+.ockBuy button:active,
+div[data-testid*="ockBuy"] button:active {
+  background-color: #0fcf6a !important;
+  transform: scale(0.98) !important;
+} */
+
+/* OnchainKit Earn Components Styling */
+/* DepositAmountInput styling */
+[data-testid*="ockDepositAmountInput"],
+.ockDepositAmountInput,
+input[data-testid*="ockDepositAmountInput"] {
+  background-color: var(--app-gray) !important;
+  color: var(--app-foreground) !important;
+  border: 1px solid var(--app-card-border) !important;
+  border-radius: 0.5rem !important;
+  padding: 12px 16px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+[data-testid*="ockDepositAmountInput"]:focus,
+.ockDepositAmountInput:focus,
+input[data-testid*="ockDepositAmountInput"]:focus {
+  border-color: var(--app-accent) !important;
+  box-shadow: 0 0 0 3px var(--app-accent) / 20 !important;
+  outline: none !important;
+}
+
+[data-testid*="ockDepositAmountInput"]::placeholder,
+.ockDepositAmountInput::placeholder,
+input[data-testid*="ockDepositAmountInput"]::placeholder {
+  color: var(--app-foreground-muted) !important;
+  opacity: 0.8 !important;
+}
+
+/* DepositButton styling */
+/* [data-testid*="ockDepositButton"],
+.ockDepositButton,
+button[data-testid*="ockDepositButton"] {
+  background-color: var(--app-accent) !important;
+  color: var(--ock-icon-color-inverse) !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 12px 24px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+} */
+
+/* [data-testid*="ockDepositButton"]:hover,
+.ockDepositButton:hover,
+button[data-testid*="ockDepositButton"]:hover {
+  background-color: var(--app-accent-hover) !important;
+  transform: scale(1.02) !important;
+  box-shadow: 0 4px 12px var(--app-accent) / 30 !important;
+}
+
+[data-testid*="ockDepositButton"]:active,
+.ockDepositButton:active,
+button[data-testid*="ockDepositButton"]:active {
+  background-color: var(--app-accent-active) !important;
+  transform: scale(0.98) !important;
+} */
+
+/* EarnDeposit container styling */
+/* [data-testid*="ockEarnDeposit"],
+.ockEarnDeposit {
+  background-color: var(--app-card-bg) !important;
+  border: 1px solid var(--app-card-border) !important;
+  border-radius: 0.75rem !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: blur(10px) !important;
+} */
+
+/* EarnDetails styling */
+/* [data-testid*="ockEarnDetails"],
+.ockEarnDetails {
+  color: var(--app-foreground) !important;
+  font-family: "Orbitron", sans-serif !important;
+  margin-bottom: 16px !important;
+} */
+
+/* DepositBalance styling */
+/* [data-testid*="ockDepositBalance"],
+.ockDepositBalance {
+  color: var(--app-foreground) !important;
+  font-family: "Orbitron", sans-serif !important;
+  margin-bottom: 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+} */
+
+/* General input styling improvements */
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: var(--app-gray) !important;
+  color: var(--app-foreground) !important;
+  border: 1px solid var(--app-card-border) !important;
+  border-radius: 0.5rem !important;
+  padding: 12px 16px !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--app-accent) !important;
+  box-shadow: 0 0 0 3px var(--app-accent) / 20 !important;
+  outline: none !important;
+}
+
+input[type="number"]::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: var(--app-foreground-muted) !important;
+  opacity: 0.8 !important;
+}
+
+/* Modal Overlay Styling - Black background for wallet connection modal */
+[data-testid="ockModalOverlay"],
+.ockModalOverlay {
+  background-color: #000000 !important;
+  border: 1px solid #1bf696 !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Modal content styling */
+[data-testid="ockModalOverlay"] *,
+.ockModalOverlay * {
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+/* Modal close button styling */
+[data-testid="ockModalOverlay"] button[aria-label="Close modal"],
+.ockModalOverlay button[aria-label="Close modal"] {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid="ockModalOverlay"] button[aria-label="Close modal"]:hover,
+.ockModalOverlay button[aria-label="Close modal"]:hover {
+  background-color: #1bf696 !important;
+  color: #000000 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Modal close icon (X) styling - make it white */
+[data-testid="ockModalOverlay"] svg[aria-label="ock-closeSvg"],
+.ockModalOverlay svg[aria-label="ock-closeSvg"],
+[data-testid="ockModalOverlay"] .ock-icon-color-foreground,
+.ockModalOverlay .ock-icon-color-foreground {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Ensure the close icon stays white on hover */
+[data-testid="ockModalOverlay"]
+  button[aria-label="Close modal"]:hover
+  svg[aria-label="ock-closeSvg"],
+.ockModalOverlay
+  button[aria-label="Close modal"]:hover
+  svg[aria-label="ock-closeSvg"],
+[data-testid="ockModalOverlay"]
+  button[aria-label="Close modal"]:hover
+  .ock-icon-color-foreground,
+.ockModalOverlay
+  button[aria-label="Close modal"]:hover
+  .ock-icon-color-foreground {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+/* Modal wallet buttons styling */
+[data-testid="ockModalOverlay"] button:not([aria-label="Close modal"]),
+.ockModalOverlay button:not([aria-label="Close modal"]) {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid #222222 !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid="ockModalOverlay"] button:not([aria-label="Close modal"]):hover,
+.ockModalOverlay button:not([aria-label="Close modal"]):hover {
+  background-color: #1bf696 !important;
+  color: #000000 !important;
+  border-color: #1bf696 !important;
+  transform: scale(1.02) !important;
+}
+
+/* Modal title and icon styling */
+[data-testid="ockModalOverlay"] h2,
+.ockModalOverlay h2 {
+  color: #ffffff !important;
+  font-family: "Orbitron", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Modal divider styling */
+[data-testid="ockModalOverlay"] .ock-text-foreground-muted,
+.ockModalOverlay .ock-text-foreground-muted {
+  color: #b0b0b0 !important;
+}
+
+/* Modal terms and privacy links */
+[data-testid="ockModalOverlay"] a,
+.ockModalOverlay a {
+  color: #1bf696 !important;
+  text-decoration: none !important;
+}
+
+[data-testid="ockModalOverlay"] a:hover,
+.ockModalOverlay a:hover {
+  text-decoration: underline !important;
+  color: #13e68a !important;
+}
+
+/* Specific styling for different transaction types */
+.custom-toast-stake {
+  border-left: 4px solid var(--ock-bg-primary) !important;
+}
+
+.custom-toast-unstake {
+  border-left: 4px solid #ef4444 !important;
+}
+
+.custom-toast-claim {
+  border-left: 4px solid #22c55e !important;
+}
+
+.custom-toast-unwrap {
+  border-left: 4px solid #f59e0b !important;
+}
+
+.custom-toast-approve {
+  border-left: 4px solid #3b82f6 !important;
+}
