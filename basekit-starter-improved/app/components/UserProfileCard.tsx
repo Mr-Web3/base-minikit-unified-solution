@@ -36,7 +36,7 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
         </h3>
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-xs text-green-400 font-mono">Connected</span>
+          <span className="text-xs text-(--app-accent) font-mono">Connected</span>
         </div>
       </div>
 
@@ -65,8 +65,8 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
               </div>
             ) : (
               <div className="relative">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1bf696]/20 to-[#1bf696]/40 border-2 border-[#1bf696]/40 flex items-center justify-center">
-                  <span className="text-[#1bf696] font-bold text-lg">
+                <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#1bf696]/20 to-[#1bf696]/40 border-2 border-[#1bf696]/40 flex items-center justify-center">
+                  <span className="text-(--app-accent) font-bold text-lg">
                     {(
                       profile.displayName ||
                       profile.username ||
@@ -87,7 +87,7 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
                   shortenAddress(userAddress)}
               </div>
               {profile.username ? (
-                <div className="text-xs text-[#1bf696] font-mono">
+                <div className="text-xs text-(--app-accent) font-mono">
                   @{profile.username}
                 </div>
               ) : (
@@ -100,8 +100,8 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
         ) : (
           <>
             <div className="relative">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1bf696]/20 to-[#1bf696]/40 border-2 border-[#1bf696]/40 flex items-center justify-center">
-                <span className="text-[#1bf696] font-bold text-lg">
+              <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#1bf696]/20 to-[#1bf696]/40 border-2 border-[#1bf696]/40 flex items-center justify-center">
+                <span className="text-(--app-accent) font-bold text-lg">
                   {userAddress.charAt(2).toUpperCase()}
                 </span>
               </div>

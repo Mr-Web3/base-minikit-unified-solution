@@ -12,8 +12,10 @@ import {
   FaTools,
   FaQuestionCircle,
   FaExternalLinkAlt,
+  FaCodeBranch,
 } from "react-icons/fa";
 import UserProfileCard from "./components/UserProfileCard";
+import BuyComponents from "./components/Buy";
 
 export default function App() {
   const { isFrameReady, setFrameReady } = useMiniKit();
@@ -27,13 +29,13 @@ export default function App() {
   }, [setFrameReady, isFrameReady]);
 
   return (
-      <div className="flex flex-col min-h-screen font-sans text-[var(--app-foreground)] mini-app-theme from-[var(--app-background)] to-[var(--app-gray)]">
+      <div className="flex flex-col min-h-screen font-sans text-(--app-foreground) mini-app-theme from-(--app-background) to-(--app-gray)">
         <div className="w-full mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-12">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                 Base Mini App by Justin
-                <span className="text-[#1bf696] block">Starter Template</span>
+                <span className="text-(--app-accent) block">Starter Template</span>
               </h1>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 A complete starter template for building Base mini apps with
@@ -41,16 +43,51 @@ export default function App() {
                 features, then customize for your own project.
               </p>
 
+              {/* One-click Fork Button */}
+              <div className="mb-10 flex items-center justify-center">
+                <button
+                  onClick={() =>
+                    openUrl(
+                      process.env.NEXT_PUBLIC_REPO_FORK_URL ||
+                        "https://github.com/your-org/your-repo/fork",
+                    )
+                  }
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-(--app-accent) text-black font-semibold shadow-lg hover:opacity-90 transition-opacity border border-[#10d67f]"
+                >
+                  <FaCodeBranch className="text-black" />
+                  <span>Start building today — Fork this repo</span>
+                </button>
+              </div>
+
               {/* User Profile Card - Only shows when wallet is connected */}
               <div className="max-w-md mx-auto mb-8">
                 <UserProfileCard />
               </div>
 
+              {/* Buy DBRO - moved from Staking to isolate issues */}
+              <div className="max-w-xl mx-auto mb-10">
+                <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+                  <div className="flex items-center justify-center space-x-2 mb-4">
+                    <FaRocket className="text-(--app-accent) text-lg" />
+                    <h3 className="text-lg font-bold text-white">Buy $DBRO</h3>
+                  </div>
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="text-(--app-accent) text-sm mb-3 text-center">
+                      Network Fees Paid By $DBRO Team Sponsored by Coinbase
+                    </p>
+                    <p className="text-gray-300 text-sm mb-3 text-center">
+                      Buy $DBRO directly with fiat or swap in-app.
+                    </p>
+                    <BuyComponents />
+                  </div>
+                </div>
+              </div>
+
               {/* Template Features */}
               <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
                 <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-                  <h3 className="text-xl text-center font-semibold text-[#1bf696] mb-3 flex items-center justify-center gap-2">
-                    <FaRocket className="text-[#1bf696]" />
+                  <h3 className="text-xl text-center font-semibold text-(--app-accent) mb-3 flex items-center justify-center gap-2">
+                    <FaRocket className="text-(--app-accent)" />
                     Ready to Use
                   </h3>
                   <p className="text-gray-300">
@@ -60,8 +97,8 @@ export default function App() {
                 </div>
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
-                  <h3 className="text-xl text-center font-semibold text-[#1bf696] mb-3 flex items-center justify-center gap-2">
-                    <FaLink className="text-[#1bf696]" />
+                  <h3 className="text-xl text-center font-semibold text-(--app-accent) mb-3 flex items-center justify-center gap-2">
+                    <FaLink className="text-(--app-accent)" />
                     Farcaster Integration
                   </h3>
                   <p className="text-gray-300">
@@ -78,23 +115,23 @@ export default function App() {
                 </h2>
                 <div className="text-left space-y-4 text-gray-300">
                   <div className="flex items-start gap-3">
-                    <span className="text-[#1bf696] font-bold">1.</span>
+                    <span className="text-(--app-accent) font-bold">1.</span>
                     <p>Connect your wallet using the button in the header</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-[#1bf696] font-bold">2.</span>
+                    <span className="text-(--app-accent) font-bold">2.</span>
                     <p>
                       Your profile information will appear above when connected
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-[#1bf696] font-bold">3.</span>
+                    <span className="text-(--app-accent) font-bold">3.</span>
                     <p>
                       Navigate to the Morpho page to see DeFi integration examples
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-[#1bf696] font-bold">4.</span>
+                    <span className="text-(--app-accent) font-bold">4.</span>
                     <p>Customize this content and add your own features</p>
                   </div>
                 </div>
@@ -108,7 +145,7 @@ export default function App() {
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Base & Mini Kit */}
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-[#1bf696] mb-3">
+                    <h3 className="text-xl font-semibold text-(--app-accent) mb-3">
                       Base & Mini Kit
                     </h3>
                     <div className="space-y-3">
@@ -120,7 +157,7 @@ export default function App() {
                         }
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors flex items-start gap-3"
                       >
-                        <FaBook className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaBook className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Mini Kit Documentation
@@ -134,7 +171,7 @@ export default function App() {
                         onClick={() => openUrl("https://docs.base.org")}
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors flex items-start gap-3"
                       >
-                        <FaBook className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaBook className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Base Documentation
@@ -150,7 +187,7 @@ export default function App() {
                         }
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors flex items-start gap-3"
                       >
-                        <FaTools className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaTools className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Coinbase Developer Platform
@@ -165,7 +202,7 @@ export default function App() {
 
                   {/* Farcaster & Community */}
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-[#1bf696] mb-3">
+                    <h3 className="text-xl font-semibold text-(--app-accent) mb-3">
                       Farcaster & Community
                     </h3>
                     <div className="space-y-3">
@@ -173,7 +210,7 @@ export default function App() {
                         onClick={() => openUrl("https://docs.farcaster.xyz/")}
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-start gap-3"
                       >
-                        <FaBook className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaBook className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Farcaster Documentation
@@ -189,7 +226,7 @@ export default function App() {
                         }
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-start gap-3"
                       >
-                        <FaComments className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaComments className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Base Channel
@@ -203,7 +240,7 @@ export default function App() {
                         onClick={() => openUrl("https://github.com/base")}
                         className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-start gap-3"
                       >
-                        <FaGithub className="text-[#1bf696] mt-1 flex-shrink-0" />
+                        <FaGithub className="text-(--app-accent) mt-1 shrink-0" />
                         <div>
                           <div className="font-medium text-white">
                             Base GitHub
@@ -219,7 +256,7 @@ export default function App() {
 
                 {/* Additional Resources */}
                 <div className="mt-6 pt-6 border-t border-gray-600">
-                  <h3 className="text-lg font-semibold text-[#1bf696] mb-3">
+                  <h3 className="text-lg font-semibold text-(--app-accent) mb-3">
                     Additional Resources
                   </h3>
                   <div className="grid md:grid-cols-4 gap-3">
@@ -227,7 +264,7 @@ export default function App() {
                       onClick={() => openUrl("https://www.dbro.dev")}
                       className="p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
                     >
-                      <FaExternalLinkAlt className="text-[#1bf696] flex-shrink-0" />
+                      <FaExternalLinkAlt className="text-(--app-accent) shrink-0" />
                       <div className="font-medium text-white text-sm">
                         DBRO Production App
                       </div>
@@ -236,7 +273,7 @@ export default function App() {
                       onClick={() => openUrl("https://github.com/base/demos")}
                       className="p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
                     >
-                      <FaCode className="text-[#1bf696] flex-shrink-0" />
+                      <FaCode className="text-(--app-accent) shrink-0" />
                       <div className="font-medium text-white text-sm">
                         Mini Kit Examples
                       </div>
@@ -249,7 +286,7 @@ export default function App() {
                       }
                       className="p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
                     >
-                      <FaBook className="text-[#1bf696] flex-shrink-0" />
+                      <FaBook className="text-(--app-accent) shrink-0" />
                       <div className="font-medium text-white text-sm">
                         API Reference
                       </div>
@@ -262,7 +299,7 @@ export default function App() {
                       }
                       className="p-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
                     >
-                      <FaQuestionCircle className="text-[#1bf696] flex-shrink-0" />
+                      <FaQuestionCircle className="text-(--app-accent) shrink-0" />
                       <div className="font-medium text-white text-sm">
                         Troubleshooting
                       </div>

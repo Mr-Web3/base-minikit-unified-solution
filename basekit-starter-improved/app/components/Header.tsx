@@ -62,7 +62,7 @@ export default function Header() {
                 href={item.href}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 font-orbitron text-sm ${
                   isActive
-                    ? "text-[#1bf696] bg-[#1bf696]/10 border border-[#1bf696]/30"
+                    ? "text-(--app-accent) bg-(--app-accent)/10 border border-(--app-accent)/30"
                     : "text-gray-300 hover:text-white hover:bg-gray-800/50"
                 }`}
                 style={{

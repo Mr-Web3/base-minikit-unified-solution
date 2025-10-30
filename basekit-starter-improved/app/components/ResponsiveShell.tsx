@@ -64,7 +64,7 @@ export default function ResponsiveShell({ children }: ResponsiveShellProps) {
             priority
           />
           <div className="flex flex-col items-center space-y-2">
-            <div className="text-green-400 font-mono text-sm">
+            <div className="text-(--app-accent) font-mono text-sm">
               <span className="animate-pulse">$</span> Initializing DBRO Mini
               Temp Protocol...
             </div>

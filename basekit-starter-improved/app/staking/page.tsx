@@ -51,7 +51,7 @@ import {
 // import Link from "next/link";
 import Toast from "../components/Toast";
 import DBROPriceConverter from "../components/DBROPriceConvertor";
-import BuyComponents from "../components/Buy";
+// import BuyComponents from "../components/Buy";
 import Image from "next/image";
 
 const formatNumberWithCommas = (value: string): string => {
@@ -884,7 +884,7 @@ const Staking: React.FC = () => {
               {/* Wallet Connection */}
               <div className="flex justify-center">
                 <Wallet className="z-10">
-                  <ConnectWallet className="font-orbitron bg-primary text-black py-2 px-4 rounded-lg hover:bg-primary/90 transition-all duration-300">
+                  <ConnectWallet className="font-orbitron bg-(--app-accent) text-black py-2 px-4 rounded-lg hover:bg-(--app-accent-hover)/90 transition-all duration-300">
                     <Name className="text-inherit" />
                   </ConnectWallet>
                   <WalletDropdown className="z-50 mt-1">
@@ -907,12 +907,12 @@ const Staking: React.FC = () => {
           {/* Pool Stats - Mobile Optimized */}
           <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800 mb-6">
             <h2 className="text-lg font-bold mb-4 flex items-center justify-center gap-2">
-              <FaCoins className="text-primary" />
+              <FaCoins className="text-(--app-accent)" />
               Pool Statistics
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-(--app-accent)">
                   {contractTokens && typeof contractTokens === "bigint"
                     ? formatNumberWithCommas(formatUnits(contractTokens, 8))
                     : "0"}
@@ -939,17 +939,17 @@ const Staking: React.FC = () => {
           {/* Additional Pool Info */}
           <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
             <h2 className="text-lg font-bold mb-4 flex items-center justify-center gap-2">
-              <FaLock className="text-primary" />
+              <FaLock className="text-(--app-accent)" />
               Staking Details
             </h2>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-400 flex items-center gap-2">
-                  <FaCoins className="text-primary" />
+                  <FaCoins className="text-(--app-accent)" />
                   Reward Claim Threshold
                 </span>
                 <div className="text-right">
-                  <div className="font-bold text-primary">
+                  <div className="font-bold text-(--app-accent)">
                     {requiredDBRO && typeof requiredDBRO === "bigint"
                       ? formatNumberWithCommas(formatUnits(requiredDBRO, 8))
                       : "Loading..."}
@@ -966,7 +966,7 @@ const Staking: React.FC = () => {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-400 flex items-center gap-2">
-                  <FaArrowUp className="text-primary" />
+                  <FaArrowUp className="text-(--app-accent)" />
                   Unwrap Fee
                 </span>
                 <span className="font-bold" style={{ color: ACCENT }}>
@@ -975,7 +975,7 @@ const Staking: React.FC = () => {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-400 flex items-center gap-2">
-                  <FaCrown className="text-primary" />
+                  <FaCrown className="text-(--app-accent)" />
                   Reward Pool
                 </span>
                 <div className="text-right">
@@ -1004,7 +1004,7 @@ const Staking: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen font-sans text-[var(--app-foreground)] mini-app-theme from-[var(--app-background)] to-[var(--app-gray)]">
+    <div className="flex flex-col min-h-screen font-sans text-(--app-foreground) mini-app-theme from-(--app-background) to-(--app-gray)">
       <div className="w-full mx-auto px-4 py-8">
         <main className="flex-1 text-center">
           {/* Main Title Section */}
@@ -1208,7 +1208,7 @@ const Staking: React.FC = () => {
                         <Image
                           src={profile.profilePicture}
                           alt="Profile"
-                          className="w-12 h-12 rounded-full border-2 border-primary/40"
+                          className="w-12 h-12 rounded-full border-2 border-(--app-accent)/40"
                           width={48}
                           height={48}
                         />
@@ -1216,8 +1216,8 @@ const Staking: React.FC = () => {
                       </div>
                     ) : (
                       <div className="relative">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-primary/40 flex items-center justify-center">
-                          <span className="text-primary font-bold text-lg">
+                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-(--app-accent)/20 to-(--app-accent)/40 border-2 border-(--app-accent)/40 flex items-center justify-center">
+                          <span className="text-(--app-accent) font-bold text-lg">
                             {(
                               profile.displayName ||
                               profile.username ||
@@ -1238,7 +1238,7 @@ const Staking: React.FC = () => {
                           shortenAddress(userAddress || "")}
                       </div>
                       {profile.username ? (
-                        <div className="text-xs text-primary font-mono">
+                        <div className="text-xs text-(--app-accent) font-mono">
                           @{profile.username}
                         </div>
                       ) : (
@@ -1251,8 +1251,8 @@ const Staking: React.FC = () => {
                 ) : userAddress ? (
                   <div className="flex items-center space-x-3 p-3 bg-gray-900/30 rounded-lg border border-gray-700">
                     <div className="relative">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-primary/40 flex items-center justify-center">
-                        <span className="text-primary font-bold text-lg">
+                      <div className="w-12 h-12 rounded-full bg-linear-to-br from-(--app-accent)/20 to-(--app-accent)/40 border-2 border-(--app-accent)/40 flex items-center justify-center">
+                        <span className="text-(--app-accent) font-bold text-lg">
                           {userAddress.charAt(2).toUpperCase()}
                         </span>
                       </div>
@@ -1274,8 +1274,8 @@ const Staking: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
-                    <FaLock className="text-primary text-sm" />
-                    <div className="text-xl font-bold text-primary font-mono">
+                    <FaLock className="text-(--app-accent) text-sm" />
+                    <div className="text-xl font-bold text-(--app-accent) font-mono">
                       {Array.isArray(stakeInfo) &&
                       stakeInfo[0] &&
                       typeof stakeInfo[0].amountStaked === "bigint"
@@ -1303,8 +1303,8 @@ const Staking: React.FC = () => {
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
-                    <FaCoins className="text-primary text-sm" />
-                    <div className="text-xl font-bold text-primary font-mono">
+                    <FaCoins className="text-(--app-accent) text-sm" />
+                    <div className="text-xl font-bold text-(--app-accent) font-mono">
                       {Array.isArray(stakeInfo) &&
                       stakeInfo[1] &&
                       typeof stakeInfo[1] === "bigint"
@@ -1330,8 +1330,8 @@ const Staking: React.FC = () => {
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
-                    <FaGem className="text-primary text-sm" />
-                    <div className="text-xl font-bold text-primary font-mono">
+                    <FaGem className="text-(--app-accent) text-sm" />
+                    <div className="text-xl font-bold text-(--app-accent) font-mono">
                       {nftBalance && typeof nftBalance === "bigint"
                         ? String(nftBalance)
                         : "0"}
@@ -1345,7 +1345,7 @@ const Staking: React.FC = () => {
             </div>
 
             {/* Buy DBRO Section - Centered */}
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
+            {/* <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 <FaCoins className="text-[#1bf696] text-lg" />
                 <h3 className="text-lg font-bold text-white">Buy $DBRO</h3>
@@ -1356,21 +1356,21 @@ const Staking: React.FC = () => {
                 </p>
                 <BuyComponents />
               </div>
-            </div>
+            </div> */}
 
             {/* Staking and NFT Stats - Side by Side */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Staking Interface */}
               <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6">
                 <div className="flex items-center space-x-2 mb-4">
-                  <FaRocket className="text-[#1bf696] text-lg" />
+                  <FaRocket className="text-(--app-accent) text-lg" />
                   <h3 className="text-lg font-bold text-white">Stake $DBRO</h3>
                 </div>
                 {userDBROBalance && (
                   <div className="mb-4">
                     <p className="text-gray-300 font-mono text-xs">
                       Your $DBRO Balance:{" "}
-                      <a className="text-primary">
+                      <a className="text-(--app-accent)">
                         {formatNumberWithCommas(
                           formatUnits(userDBROBalance, 8),
                         )}
@@ -1418,7 +1418,7 @@ const Staking: React.FC = () => {
                             Number(formatUnits(userDBROBalance, 8)) *
                               option.percentage,
                           )
-                          ? "bg-primary text-black shadow-lg"
+                          ? "bg-(--app-accent) text-black shadow-lg"
                           : "bg-gray-800 text-white hover:bg-gray-700 border border-gray-700"
                       }`}
                       disabled={!userDBROBalance}
@@ -1439,7 +1439,7 @@ const Staking: React.FC = () => {
                       placeholder="Enter amount to stake"
                       value={stakeAmount || ""}
                       onChange={(e) => setStakeAmount(Number(e.target.value))}
-                      className="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 h-8 text-sm rounded-lg focus:border-primary focus:ring-0 font-mono pr-16 pl-3"
+                      className="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 h-8 text-sm rounded-lg focus:border-(--app-accent) focus:ring-0 font-mono pr-16 pl-3"
                       style={{
                         color: "white",
                         backgroundColor: "#1f2937",
@@ -1461,7 +1461,7 @@ const Staking: React.FC = () => {
                       disabled={
                         !stakeAmount || !userDBROBalance || isTransactionPending
                       }
-                      className={`w-full bg-primary text-black px-4 py-2 rounded-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-primary/90 text-sm ${
+                      className={`w-full bg-(--app-accent) text-black px-4 py-2 rounded-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-(--app-accent-hover)/90 text-sm ${
                         isTransactionPending
                           ? "opacity-50 cursor-not-allowed"
                           : ""
@@ -1481,7 +1481,7 @@ const Staking: React.FC = () => {
                         !isApproved ||
                         isTransactionPending
                       }
-                      className={`w-full bg-primary text-black px-4 py-2 rounded-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-primary/90 text-sm ${
+                      className={`w-full bg-(--app-accent) text-black px-4 py-2 rounded-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-(--app-accent-hover)/90 text-sm ${
                         isTransactionPending
                           ? "opacity-50 cursor-not-allowed"
                           : ""
@@ -1526,7 +1526,7 @@ const Staking: React.FC = () => {
                         stakeInfo[1] < requiredDBRO ||
                         isTransactionPending
                       }
-                      className="bg-primary text-black px-3 py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-primary/90 text-sm"
+                      className="bg-(--app-accent) text-black px-3 py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono hover:bg-(--app-accent-hover)/90 text-sm"
                     >
                       {isTransactionPending ? (
                         "Claiming..."
@@ -1563,7 +1563,7 @@ const Staking: React.FC = () => {
                     <span className="text-gray-400 font-mono text-xs">
                       Your NFTs
                     </span>
-                    <span className="text-sm font-bold text-primary font-mono">
+                    <span className="text-sm font-bold text-(--app-accent) font-mono">
                       {nftBalance && typeof nftBalance === "bigint"
                         ? String(nftBalance)
                         : "0"}
@@ -1573,7 +1573,7 @@ const Staking: React.FC = () => {
                     <span className="text-gray-400 font-mono text-xs">
                       Total Minted
                     </span>
-                    <span className="text-sm font-bold text-primary font-mono">
+                    <span className="text-sm font-bold text-(--app-accent) font-mono">
                       {totalNFTSupply && typeof totalNFTSupply === "bigint"
                         ? String(totalNFTSupply)
                         : "Loading..."}
@@ -1585,7 +1585,7 @@ const Staking: React.FC = () => {
                         Your Wrapped $DBRO
                       </span>
                       <div className="text-right">
-                        <div className="text-sm font-bold text-primary font-mono">
+                        <div className="text-sm font-bold text-(--app-accent) font-mono">
                           {nftBalance && typeof nftBalance === "bigint"
                             ? formatNumberWithCommas(
                                 formatUnits(nftBalance * BigInt(9700000), 8),
@@ -1615,7 +1615,7 @@ const Staking: React.FC = () => {
                   nftBalance > BigInt(0) && (
                     <div className="border-t border-gray-700 pt-3">
                       <div className="flex items-center space-x-2 mb-3">
-                        <FaUnlock className="text-primary text-sm" />
+                        <FaUnlock className="text-(--app-accent) text-sm" />
                         <h4 className="text-sm font-bold text-white font-mono">
                           Unwrap NFTs
                         </h4>
@@ -1639,7 +1639,7 @@ const Staking: React.FC = () => {
                               );
                             }
                           }}
-                          className="w-full bg-gray-800 border border-gray-700 text-white px-2 py-1 rounded focus:outline-none focus:ring-0 focus:border-primary text-xs font-mono"
+                          className="w-full bg-gray-800 border border-gray-700 text-white px-2 py-1 rounded focus:outline-none focus:ring-0 focus:border-(--app-accent) text-xs font-mono"
                           style={{
                             color: "white",
                             backgroundColor: "#1f2937",
@@ -1652,7 +1652,7 @@ const Staking: React.FC = () => {
                           <button
                             onClick={handleApproveNFTs}
                             disabled={!userAddress || isTransactionPending}
-                            className="w-full bg-primary text-black px-3 py-1 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono text-xs font-bold"
+                            className="w-full bg-(--app-accent) text-black px-3 py-1 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-mono text-xs font-bold"
                           >
                             {isTransactionPending
                               ? "Approving..."
@@ -1706,7 +1706,7 @@ const Staking: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-800">
               <div className="flex items-center space-x-3">
-                <FaFire className="text-primary text-xl" />
+                <FaFire className="text-(--app-accent) text-xl" />
                 <h2 className="text-2xl font-bold text-white font-mono">
                   Wrapped NFT Perks
                 </h2>
@@ -1724,7 +1724,7 @@ const Staking: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaLeaf className="text-primary text-2xl" />
+                    <FaLeaf className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         Lawn & Landscaping
@@ -1742,7 +1742,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaCode className="text-primary text-2xl" />
+                    <FaCode className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DBRO Live Buildathon
@@ -1760,7 +1760,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaStore className="text-primary text-2xl" />
+                    <FaStore className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DBRO Store
@@ -1778,7 +1778,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaComments className="text-primary text-2xl" />
+                    <FaComments className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DBRO Mentorship
@@ -1796,7 +1796,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaTools className="text-primary text-2xl" />
+                    <FaTools className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         Web3 Dev Kits
@@ -1814,7 +1814,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaChalkboardTeacher className="text-primary text-2xl" />
+                    <FaChalkboardTeacher className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         Web3 Workshops
@@ -1832,7 +1832,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaCode className="text-primary text-2xl" />
+                    <FaCode className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DBRO Development
@@ -1850,7 +1850,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaMusic className="text-primary text-2xl" />
+                    <FaMusic className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DOM NFT Wrapping
@@ -1868,7 +1868,7 @@ const Staking: React.FC = () => {
 
                 <div className="bg-gray-900/50 border border-gray-700 rounded-xl p-4">
                   <div className="flex items-start gap-3 mb-3">
-                    <FaCloud className="text-primary text-2xl" />
+                    <FaCloud className="text-(--app-accent) text-2xl" />
                     <div className="flex-1">
                       <h3 className="font-bold text-white text-sm">
                         DBRO IPFS | IPNS Gateway
@@ -1888,7 +1888,7 @@ const Staking: React.FC = () => {
               {/* Footer Info */}
               <div className="mt-6 p-4 bg-gray-900/30 rounded-xl border border-gray-700">
                 <div className="flex items-center gap-2 mb-2">
-                  <FaCrown className="text-primary text-sm" />
+                  <FaCrown className="text-(--app-accent) text-sm" />
                   <span className="text-sm font-bold text-white">
                     How to Unlock Perks
                   </span>
@@ -1903,7 +1903,8 @@ const Staking: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
+      )
+    }
     </div>
   );
 };

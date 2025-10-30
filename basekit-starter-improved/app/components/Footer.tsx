@@ -41,7 +41,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-gradient-to-r from-gray-900/30 to-gray-800/30 backdrop-blur-sm border-t border-gray-700/50">
+    <footer className="w-full bg-linear-to-r from-(--app-background) to-(--app-gray) backdrop-blur-sm border-t border-gray-700/50">
       <div className="w-full mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 min-h-[80px] py-6">
           {/* Logo and Brand */}

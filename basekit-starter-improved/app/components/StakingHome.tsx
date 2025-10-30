@@ -115,49 +115,49 @@ const tagColors: Record<TagType, string> = {
 const StakingHome: React.FC = () => {
   const openUrl = useOpenUrl();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-[var(--app-foreground)] animate-fade-in">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-(--app-foreground) animate-fade-in">
       {/* Hero Section */}
       <section className="w-full max-w-3xl text-center py-0 px-4 font-orbitron">
         <h1 className="text-4xl md:text-4xl font-extrabold mb-4 text-white">
-          Earn More With Your <a className="text-primary">$DBRO</a>
+          Earn More With Your <a className="text-(--app-accent)">$DBRO</a>
         </h1>
-        <p className="text-lg md:text-xl text-[var(--app-foreground-muted)] mb-8">
-          Stake your <a className="text-primary">$DBRO</a> tokens to earn high
+        <p className="text-lg md:text-xl text-(--app-foreground-muted) mb-8">
+          Stake your <a className="text-(--app-accent)">$DBRO</a> tokens to earn high
           rewards, unlock exclusive NFT utilities, and join the next wave of
           Web3 innovation.
         </p>
         <Link href="/staking">
-          <button className="bg-[#111] text-white font-bold px-6 py-2 border border-[#1bf696] rounded-xl text-lg shadow-lg hover:scale-105 transition-transform flex items-center gap-2 mx-auto mb-8">
-            Start Staking <FaCoins className="text-primary" />
+          <button className="bg-[#111] text-white font-bold px-6 py-2 border border-(--app-accent) rounded-xl text-lg shadow-lg hover:scale-105 transition-transform flex items-center gap-2 mx-auto mb-8">
+            Start Staking <FaCoins className="text-(--app-accent)" />
           </button>
         </Link>
       </section>
 
       {/* Why Stake Section */}
       <section className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 px-4 font-orbitron">
-        <div className="bg-none border border-[var(--app-card-border)] rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
+        <div className="bg-none border border-(--app-card-border) rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
           <FaCoins size={40} style={{ color: ACCENT }} className="mb-3" />
           <h2 className="font-bold text-xl mb-2">Earn Rewards</h2>
-          <p className="text-[var(--app-foreground-muted)]">
+          <p className="text-(--app-foreground-muted)">
             Get up to{" "}
             <span className="font-bold" style={{ color: ACCENT }}>
               30% APY
             </span>{" "}
-            by staking your <a className="text-primary">$DBRO</a> tokens.
+            by staking your <a className="text-(--app-accent)">$DBRO</a> tokens.
           </p>
         </div>
-        <div className="bg-none border border-[var(--app-card-border)] rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
+        <div className="bg-none border border-(--app-card-border) rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
           <FaGift size={40} style={{ color: ACCENT }} className="mb-3" />
           <h2 className="font-bold text-xl mb-2">Unlock NFT Utilities</h2>
-          <p className="text-[var(--app-foreground-muted)]">
+          <p className="text-(--app-foreground-muted)">
             Stake to mint utility NFTs and access exclusive merchandise,
             workshops, and more.
           </p>
         </div>
-        <div className="bg-none border border-[var(--app-card-border)] rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
+        <div className="bg-none border border-(--app-card-border) rounded-xl p-6 flex flex-col items-center text-center shadow-lg">
           <FaLock size={40} style={{ color: ACCENT }} className="mb-3" />
           <h2 className="font-bold text-xl mb-2">Low Fees & Secure</h2>
-          <p className="text-[var(--app-foreground-muted)]">
+          <p className="text-(--app-foreground-muted)">
             Enjoy low fees on Base network and robust smart contract security.
           </p>
         </div>
@@ -168,7 +168,7 @@ const StakingHome: React.FC = () => {
         <Image
           src="/staking-2.png"
           alt="Staking and Earning"
-          className="rounded-xl shadow-lg object-cover border border-[var(--app-card-border)]"
+          className="rounded-xl shadow-lg object-cover border border-(--app-card-border)"
           width={500}
           height={500}
         />
@@ -177,42 +177,42 @@ const StakingHome: React.FC = () => {
       {/* How It Works Section */}
       <section className="w-full max-w-4xl mb-16 px-4 font-orbitron">
         <h2 className="text-2xl font-bold mb-6 text-center animate-pulse text-white">
-          How <a className="text-primary">$DBRO</a> Staking Works
+          How <a className="text-(--app-accent)">$DBRO</a> Staking Works
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="flex flex-col items-center text-center">
             <FaRocket size={36} style={{ color: ACCENT }} className="mb-2" />
             <span className="font-semibold mb-1">1. Connect Wallet</span>
-            <span className="text-[var(--app-foreground-muted)]">
+            <span className="text-(--app-foreground-muted)">
               Connect your wallet to get started.
             </span>
           </div>
           <div className="flex flex-col items-center text-center">
             <FaCrown size={36} style={{ color: ACCENT }} className="mb-2" />
             <span className="font-semibold mb-1">
-              2. Stake <a className="text-primary">$DBRO</a>
+              2. Stake <a className="text-(--app-accent)">$DBRO</a>
             </span>
-            <span className="text-[var(--app-foreground-muted)]">
-              Choose how much <a className="text-primary">$DBRO</a> to stake and
+            <span className="text-(--app-foreground-muted)">
+              Choose how much <a className="text-(--app-accent)">$DBRO</a> to stake and
               confirm the transaction.
             </span>
           </div>
           <div className="flex flex-col items-center text-center">
             <FaGift size={36} style={{ color: ACCENT }} className="mb-2" />
             <span className="font-semibold mb-1">3. Claim Rewards</span>
-            <span className="text-[var(--app-foreground-muted)]">
-              When you reach <a className="text-primary">100K $DBRO</a> rewards,
-              claim them to mint a <a className="text-primary">$DBRO</a> Hybrid
+            <span className="text-(--app-foreground-muted)">
+              When you reach <a className="text-(--app-accent)">100K $DBRO</a> rewards,
+              claim them to mint a <a className="text-(--app-accent)">$DBRO</a> Hybrid
               NFT with wrapped rewards.
             </span>
           </div>
           <div className="flex flex-col items-center text-center">
             <FaBoxOpen size={36} style={{ color: ACCENT }} className="mb-2" />
             <span className="font-semibold mb-1">4. Use Your NFTs</span>
-            <span className="text-[var(--app-foreground-muted)]">
+            <span className="text-(--app-foreground-muted)">
               Stack NFTs for tiered utilities or unwrap to stake more{" "}
-              <a className="text-primary">$DBRO</a> (Stake up to{" "}
-              <a className="text-primary">5M</a> max).
+              <a className="text-(--app-accent)">$DBRO</a> (Stake up to{" "}
+              <a className="text-(--app-accent)">5M</a> max).
             </span>
           </div>
         </div>
@@ -227,7 +227,7 @@ const StakingHome: React.FC = () => {
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="bg-none border border-[var(--app-card-border)] rounded-xl p-6 flex flex-col shadow-lg relative"
+              className="bg-none border border-(--app-card-border) rounded-xl p-6 flex flex-col shadow-lg relative"
             >
               <div className="flex items-center gap-3 mb-2">
                 {b.icon}
@@ -238,13 +238,13 @@ const StakingHome: React.FC = () => {
                   {b.tag}
                 </span>
               </div>
-              <div className="text-sm text-[var(--app-foreground-muted)] mb-1">
+              <div className="text-sm text-(--app-foreground-muted) mb-1">
                 Requires{" "}
                 <span className="font-semibold" style={{ color: ACCENT }}>
                   {b.requires}
                 </span>
               </div>
-              <div className="text-[var(--app-foreground)] text-base mb-2">
+              <div className="text-(--app-foreground) text-base mb-2">
                 {b.description}
               </div>
             </div>
@@ -253,7 +253,7 @@ const StakingHome: React.FC = () => {
         <div className="flex justify-center">
           <button
             onClick={() => openUrl("https://www.decentralbros.dev")}
-            className="bg-[#111] text-white font-bold px-6 py-2 border border-[#1bf696] rounded-xl text-lg shadow-lg hover:scale-105 transition-transform flex items-center gap-2"
+            className="bg-[#111] text-white font-bold px-6 py-2 border border-(--app-accent) rounded-xl text-lg shadow-lg hover:scale-105 transition-transform flex items-center gap-2"
           >
             View All Utilities <IoBuildOutline className="text-primary" />
           </button>

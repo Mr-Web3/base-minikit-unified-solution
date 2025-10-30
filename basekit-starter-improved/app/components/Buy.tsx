@@ -36,7 +36,7 @@ export default function BuyComponents() {
         } as React.CSSProperties
       }
     >
-      <Buy toToken={dbroToken} />
+      <Buy toToken={dbroToken} isSponsored />
     </div>
   );
 }
