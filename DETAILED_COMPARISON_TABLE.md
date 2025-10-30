@@ -9,7 +9,9 @@ This document provides a comprehensive comparison between the current Base Mini 
 | Feature Category | Base Starter Kit | Unified Solution | Impact |
 |------------------|------------------|------------------|---------|
 | **Platform Support** | Mini App only | dApp + Mini App | 🟢 **High** - Single codebase for all platforms |
-| **Wallet Integration** | Basic config only | Complete UI implementation | 🟢 **High** - Better user accessibility |
+| **Wallet Integration** | Basic config only | Complete UI implementation + Selective wallet support | 🟢 **High** - Better user accessibility |
+| **Sponsored Transactions** | None | Paymaster integration for gas-free transactions | 🟢 **High** - Better UX, removes gas barriers |
+| **Token Purchase** | None | OnChainKit Buy component with sponsored support | 🟢 **High** - Native purchase flow |
 | **Styling System** | CSS Modules | Tailwind CSS | 🟡 **Medium** - Faster development |
 | **Local Development** | Limited | Full ngrok support | 🟢 **High** - Better developer experience |
 | **Smart Contracts** | None | Comprehensive | 🟢 **High** - Production-ready |
@@ -116,39 +118,60 @@ const { data: authData, isLoading: isAuthLoading, error: authError } = useQuickA
 
 #### Unified Solution
 ```typescript
-// Comprehensive wallet support
-export function Providers(props: { children: ReactNode }) {
+// Comprehensive wallet support with paymaster and selective wallet configuration
+export function RootProvider({ children }: { children: ReactNode }) {
   return (
-    <MiniKitProvider
+    <OnchainKitProvider
+      projectId={process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_ID}
       apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
       chain={base}
       config={{
+        paymaster: process.env.NEXT_PUBLIC_PAYMASTER_AND_BUNDLER_ENDPOINT,
+        appearance: {
+          mode: "auto",
+          theme: "custom",
+          name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME,
+          logo: process.env.NEXT_PUBLIC_ICON_URL,
+        },
         wallet: {
           display: "modal",
-          preference: "all", // Supports all wallet types
+          preference: "all",
           termsUrl: "https://www.decentralbros.io/terms",
           privacyUrl: "https://www.decentralbros.io/privacy",
+          supportedWallets: { 
+            rabby: false, 
+            trust: true,  // Trust Wallet enabled
+            frame: false, 
+          },
         },
       }}
+      miniKit={{
+        enabled: true,
+        autoConnect: true,
+        notificationProxyUrl: undefined,
+      }}
     >
-      {props.children}
-    </MiniKitProvider>
+      {children}
+    </OnchainKitProvider>
   );
 }
 
-// Header.tsx - Wallet connection UI
+// Header.tsx - Complete wallet connection UI
 <Wallet className="z-10">
-  <ConnectWallet className="font-orbitron bg-transparent border border-primary text-white rounded-full hover:bg-transparent">
-    <Name className="text-inherit text-white" />
+  <ConnectWallet className="">
+    <Name className="text-inherit" />
   </ConnectWallet>
-  <WalletDropdown className="z-50 mt-1 bg-[#000000]">
-    <Identity className="px-4 pt-3 pb-2 bg-transparent text-white" hasCopyAddressOnClick>
+  <WalletDropdown className="">
+    <Identity
+      className="px-4 pt-3 pb-2 bg-transparent text-white"
+      hasCopyAddressOnClick
+    >
       <Avatar />
-      <Name className="font-orbitron text-white" />
-      <Address className="font-orbitron text-white" />
-      <EthBalance className="font-orbitron text-white" />
+      <Name className="font-orbitron" />
+      <Address className="font-orbitron" />
+      <EthBalance className="font-orbitron" />
     </Identity>
-    <WalletDropdownDisconnect className="bg-transparent text-red-500 hover:bg-transparent" />
+    <WalletDropdownDisconnect className="bg-transparent hover:bg-transparent" />
   </WalletDropdown>
 </Wallet>
 ```
@@ -156,10 +179,67 @@ export function Providers(props: { children: ReactNode }) {
 **Advantages**:
 - ✅ Supports Base account integration
 - ✅ Supports traditional wallets (MetaMask, WalletConnect, etc.)
-- ✅ Comprehensive wallet UI components
+- ✅ **Selective wallet support** - Control which wallets are available
+- ✅ **Paymaster integration** - Sponsored gas transactions configured
+- ✅ Comprehensive wallet UI components with identity display
 - ✅ Better user accessibility
 
-### 3. Styling System
+### 3. Sponsored Transactions & Token Purchase
+
+#### Base Starter Kit
+```typescript
+// No sponsored transaction support
+// No token purchase functionality
+// Users must pay gas fees for all transactions
+// No Buy component integration
+```
+
+#### Unified Solution
+```typescript
+// rootProvider.tsx - Paymaster configuration
+export function RootProvider({ children }: { children: ReactNode }) {
+  return (
+    <OnchainKitProvider
+      config={{
+        paymaster: process.env.NEXT_PUBLIC_PAYMASTER_AND_BUNDLER_ENDPOINT,
+        // ... other config
+      }}
+    >
+      {children}
+    </OnchainKitProvider>
+  );
+}
+
+// Buy.tsx - OnChainKit Buy component with sponsored transactions
+import { Buy } from "@coinbase/onchainkit/buy";
+
+export default function BuyComponents() {
+  const dbroToken: Token = {
+    name: "Decentral Bros",
+    address: "0x6a4e0F83D7882BcACFF89aaF6f60D24E13191E9F",
+    symbol: "$DBRO",
+    decimals: 8,
+    image: "./newLogoTwo.png",
+    chainId: 8453,
+  };
+
+  return (
+    <div>
+      <p>Network Fees Paid By $DBRO Team Sponsored by Coinbase</p>
+      <Buy toToken={dbroToken} isSponsored />
+    </div>
+  );
+}
+```
+
+**Advantages**:
+- ✅ **Zero gas fees for users** - Transactions sponsored by paymaster
+- ✅ **Native token purchase flow** - OnChainKit Buy component integration
+- ✅ **Better user experience** - Removes gas payment barrier
+- ✅ **Increased adoption** - Users don't need ETH to transact
+- ✅ **Sponsored transaction messaging** - Clear UI indication of gas sponsorship
+
+### 4. Styling System
 
 #### Base Starter Kit
 ```css
@@ -252,7 +332,7 @@ const config: Config = {
 - ✅ Better maintainability
 - ✅ Responsive design utilities
 
-### 4. Local Development Support
+### 5. Local Development Support
 
 #### Base Starter Kit
 ```bash
@@ -289,7 +369,7 @@ curl https://abc123.ngrok.io/.well-known/farcaster.json
 - ✅ Faster development cycle
 - ✅ Lower deployment costs
 
-### 5. Smart Contract Integration
+### 6. Smart Contract Integration
 
 #### Base Starter Kit
 ```typescript
@@ -346,7 +426,7 @@ const { write: stake, isLoading: isStaking } = useContractWrite({
 - ✅ Production-ready patterns
 - ✅ Error handling and user feedback
 
-### 6. API Endpoints & Backend Functionality
+### 7. API Endpoints & Backend Functionality
 
 #### Base Starter Kit
 ```typescript
@@ -420,7 +500,7 @@ export async function POST(request: NextRequest) {
 - ✅ Transaction monitoring
 - ✅ Debug capabilities
 
-### 7. Notification System
+### 8. Notification System
 
 #### Base Starter Kit
 ```typescript
@@ -469,7 +549,7 @@ export async function sendStakingNotification({
 - ✅ Transaction monitoring
 - ✅ User engagement features
 
-### 7. Manifest Management
+### 9. Manifest Management
 
 #### Base Starter Kit
 ```typescript
@@ -510,7 +590,7 @@ const generateManifest = () => {
 - ✅ Reduced errors
 - ✅ Faster deployment
 
-### 8. Code Quality & Production Readiness
+### 10. Code Quality & Production Readiness
 
 #### Base Starter Kit
 ```typescript
@@ -610,6 +690,8 @@ const generateManifest = () => {
 3. **Provide CLI options** - Allow developers to choose architecture
 4. **Restore local development support** - Add ngrok documentation back
 5. **Enhance wallet integration** - Support traditional wallets alongside Base account
+6. **Add sponsored transaction examples** - Include Paymaster integration patterns
+7. **Include Buy component** - Demonstrate native token purchase functionality
 
 ### For Developers
 1. **Choose appropriate architecture** - Simple for basic apps, unified for comprehensive apps

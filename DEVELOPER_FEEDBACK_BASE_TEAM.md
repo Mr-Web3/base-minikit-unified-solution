@@ -17,18 +17,23 @@ This document provides constructive feedback on the current Base Mini App starte
 - Higher maintenance costs
 - Inconsistent user experience across platforms
 
-### 2. **Limited Wallet Integration**
+### 2. **Limited Wallet Integration & No Sponsored Transactions**
 **Current Issue**: While the `rootProvider.tsx` does include `preference: "all"` for wallet support, the implementation is incomplete
 - No wallet connection UI components in the main app
 - No traditional wallet connection examples
 - Relies solely on Base account context without fallback options
 - No responsive wallet UI for different platforms
+- No selective wallet configuration (can't control which wallets appear)
+- **No Paymaster/sponsored transaction support** - Users must pay gas fees
+- No token purchase (Buy component) integration
 
 **Impact**:
 - Reduced user adoption
 - Limited accessibility
 - Poor user experience for non-Base users
 - No clear wallet connection patterns for developers
+- **Gas fees create barrier to entry** - Users need ETH to transact
+- **No native purchase flow** - Missing OnChainKit Buy component
 
 ### 3. **CSS Modules Instead of Modern Styling**
 **Current Issue**: Uses legacy CSS modules
@@ -75,7 +80,8 @@ This document provides constructive feedback on the current Base Mini App starte
 - Missing app metadata (NEXT_PUBLIC_APP_SUBTITLE, NEXT_PUBLIC_APP_DESCRIPTION, etc.)
 - Missing Redis configuration for notifications
 - Missing RPC configuration for custom endpoints
-- Missing Paymaster configuration for transaction sponsorship
+- **Missing Paymaster configuration** - No sponsored transaction setup example
+- **Missing Buy component configuration** - No token purchase flow
 - No environment template file provided
 
 **Impact**:
@@ -114,43 +120,56 @@ const detectMiniApp = () => {
 
 #### 2. **Comprehensive Wallet Integration**
 ```typescript
-// Unified provider approach with complete wallet UI
-<MiniKitProvider
+// Unified provider approach with paymaster and selective wallet support
+<OnchainKitProvider
   config={{
+    paymaster: process.env.NEXT_PUBLIC_PAYMASTER_AND_BUNDLER_ENDPOINT,
     wallet: {
       display: "modal",
-      preference: "all", // Supports all wallet types
+      preference: "all",
       termsUrl: "https://www.decentralbros.io/terms",
       privacyUrl: "https://www.decentralbros.io/privacy",
+      supportedWallets: { 
+        rabby: false, 
+        trust: true,  // Selective wallet control
+        frame: false, 
+      },
     },
   }}
 >
   {props.children}
-</MiniKitProvider>
+</OnchainKitProvider>
 
 // Complete wallet connection UI in Header.tsx
 <Wallet className="z-10">
-  <ConnectWallet className="font-orbitron bg-transparent border border-primary text-white rounded-full hover:bg-transparent">
-    <Name className="text-inherit text-white" />
+  <ConnectWallet className="">
+    <Name className="text-inherit" />
   </ConnectWallet>
-  <WalletDropdown className="z-50 mt-1 bg-[#000000]">
+  <WalletDropdown className="">
     <Identity className="px-4 pt-3 pb-2 bg-transparent text-white" hasCopyAddressOnClick>
       <Avatar />
-      <Name className="font-orbitron text-white" />
-      <Address className="font-orbitron text-white" />
-      <EthBalance className="font-orbitron text-white" />
+      <Name className="font-orbitron" />
+      <Address className="font-orbitron" />
+      <EthBalance className="font-orbitron" />
     </Identity>
-    <WalletDropdownDisconnect className="bg-transparent text-red-500 hover:bg-transparent" />
+    <WalletDropdownDisconnect className="bg-transparent hover:bg-transparent" />
   </WalletDropdown>
 </Wallet>
+
+// Buy.tsx - Token purchase with sponsored transactions
+import { Buy } from "@coinbase/onchainkit/buy";
+<Buy toToken={dbroToken} isSponsored />
 ```
 
 **Benefits**:
 - Complete wallet connection UI implementation
+- **Selective wallet control** - Choose which wallets to support
+- **Sponsored gas transactions** - Users pay zero gas fees
+- **Native token purchase** - OnChainKit Buy component integration
 - Supports both Base account and traditional wallets
 - Responsive design for different platforms
 - Better user accessibility
-- Increased adoption potential
+- Increased adoption potential (no gas barrier)
 
 #### 3. **Modern Styling with Tailwind CSS**
 ```typescript
@@ -215,11 +234,14 @@ npm run manifest:sign
 - Provide production-ready patterns
 - Add code formatting and linting tools
 
-### 4. **Expand Wallet Support**
-- Support traditional wallet connections
+### 4. **Expand Wallet Support & Add Sponsored Transactions**
+- Support traditional wallet connections with selective control
 - Provide wallet detection logic
 - Include wallet connection UI components
 - Maintain Base account integration
+- **Add Paymaster integration** - Enable sponsored gas transactions
+- **Include Buy component examples** - Demonstrate native token purchase
+- **Show sponsored transaction messaging** - User-facing gas sponsorship indicators
 
 ### 5. **Add Missing Features**
 - Smart contract integration examples

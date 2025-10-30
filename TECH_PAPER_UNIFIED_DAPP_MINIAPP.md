@@ -63,30 +63,43 @@ const detectMiniApp = () => {
 };
 ```
 
-#### 2. **Dual Wallet Integration Strategy**
+#### 2. **Dual Wallet Integration Strategy + Sponsored Transactions**
 ```typescript
-// providers.tsx - Unified provider approach
-export function Providers(props: { children: ReactNode }) {
+// rootProvider.tsx - Unified provider approach with Paymaster
+export function RootProvider({ children }: { children: ReactNode }) {
   return (
-    <MiniKitProvider
+    <OnchainKitProvider
+      projectId={process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_ID}
       apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
       chain={base}
       config={{
+        paymaster: process.env.NEXT_PUBLIC_PAYMASTER_AND_BUNDLER_ENDPOINT,
         appearance: {
           mode: "auto",
-          theme: "mini-app-theme",
+          theme: "custom",
           name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME,
           logo: process.env.NEXT_PUBLIC_ICON_URL,
         },
         wallet: {
           display: "modal",
+          preference: "all",
           termsUrl: "https://www.decentralbros.io/terms",
           privacyUrl: "https://www.decentralbros.io/privacy",
+          supportedWallets: { 
+            rabby: false, 
+            trust: true, 
+            frame: false, 
+          },
         },
       }}
+      miniKit={{
+        enabled: true,
+        autoConnect: true,
+        notificationProxyUrl: undefined,
+      }}
     >
-      {props.children}
-    </MiniKitProvider>
+      {children}
+    </OnchainKitProvider>
   );
 }
 ```
@@ -123,9 +136,12 @@ const config: Config = {
 - **Responsive Layout**: Adapts UI/UX based on platform
 - **Seamless Experience**: Users get optimal experience regardless of access point
 
-#### 2. **Comprehensive Wallet Support**
+#### 2. **Comprehensive Wallet Support + Sponsored Transactions**
 - **Mini App Context**: Uses Base account integration
 - **Web Context**: Provides traditional wallet connection options
+- **Selective Wallet Control**: Configure which wallets are available (e.g., Trust Wallet enabled)
+- **Sponsored Gas Transactions**: Paymaster integration for zero-cost transactions
+- **Native Token Purchase**: OnChainKit Buy component with sponsored transaction support
 - **Unified Interface**: Same user experience across platforms
 
 #### 3. **Advanced Smart Contract Integration**
@@ -219,7 +235,9 @@ npm run manifest:sign
 | Feature | Base Starter Kit | Unified Solution |
 |---------|------------------|------------------|
 | **Platform Support** | Mini App only | dApp + Mini App |
-| **Wallet Integration** | Base account only | Base account + Traditional wallets |
+| **Wallet Integration** | Base account only | Base account + Traditional wallets + Selective control |
+| **Sponsored Transactions** | None | Paymaster integration for gas-free transactions |
+| **Token Purchase** | None | OnChainKit Buy component with sponsorship |
 | **Styling System** | CSS Modules | Tailwind CSS |
 | **Local Development** | Limited | Full ngrok support |
 | **Smart Contracts** | Basic | Comprehensive |

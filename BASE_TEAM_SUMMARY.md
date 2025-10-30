@@ -4,7 +4,9 @@ This repository documents and demonstrates a unified solution that addresses key
 
 ## TL;DR
 - Single codebase supports web dApp + Mini App
-- Complete wallet UI (Base account + traditional wallets)
+- Complete wallet UI (Base account + traditional wallets with selective wallet support)
+- **Sponsored gas transactions (Paymaster) integration** - Users can transact without gas fees
+- **OnChainKit Buy component** - Native token purchase with sponsored transactions
 - Modern Tailwind styling and responsive components
 - Smart contract integration and staking UX
 - Farcaster notifications with Redis support
@@ -13,7 +15,10 @@ This repository documents and demonstrates a unified solution that addresses key
 
 ## What we changed (high level)
 - Implemented a responsive shell for web/Mini App contexts
-- Added complete wallet UI with `ConnectWallet`, identity, balances
+- Added complete wallet UI with `ConnectWallet`, identity, balances, and wallet dropdown
+- **Integrated Paymaster for sponsored gas transactions** - Zero-cost transactions for users
+- **Configured selective wallet support** - Control which wallets are available (Trust Wallet enabled, Rabby/Frame disabled)
+- **Added OnChainKit Buy component** - Direct token purchase with sponsored transaction support
 - Integrated staking contracts with read/write flows and toasts
 - Implemented Farcaster notification endpoints and utilities
 - Adopted Tailwind CSS; consolidated design tokens and theme
@@ -39,11 +44,16 @@ Note: `basekit-starter-main/` is preserved as the original upstream example for 
 ## How to review quickly
 1. Run locally as a web app
    - `npm i && npm run dev`
-2. Test Mini App features locally
+2. Configure sponsored transactions (optional)
+   - Set `NEXT_PUBLIC_PAYMASTER_AND_BUNDLER_ENDPOINT` in `.env`
+   - Transactions will be sponsored (users pay no gas)
+3. Test Mini App features locally
    - `ngrok http --url=help.ngrok.dev 3000`
    - Set `NEXT_PUBLIC_URL` to ngrok URL
    - `npm run manifest:generate && npm run manifest:sign && npm run manifest:validate`
-3. Try wallet connect, staking flows, and notifications
+4. Try wallet connect, token purchase (Buy component), staking flows, and notifications
+   - Notice sponsored transaction messaging on Buy component
+   - Test different wallet connections (Trust Wallet enabled, others configurable)
 
 ## Why this helps the Base ecosystem
 - Lowers onboarding friction for devs (single codebase)
