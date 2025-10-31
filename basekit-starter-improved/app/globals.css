@@ -69,9 +69,9 @@
 
 /* OnchainKit custom theme: 'custom' */
 @layer base {
-  [data-ock-theme='custom-light'] {
+  [data-ock-theme="custom-light"] {
     /* Typography & Shape */
-    --ock-font-family: 'Inter', sans-serif;
+    --ock-font-family: "Inter", sans-serif;
     --ock-radius-default: 0.75rem;
     --ock-radius-inner: 0.5rem;
 
@@ -139,9 +139,9 @@
     --ock-toast-text: #ffffff;
   }
 
-  [data-ock-theme='custom-dark'] {
+  [data-ock-theme="custom-dark"] {
     /* Typography & Shape */
-    --ock-font-family: 'Inter', sans-serif;
+    --ock-font-family: "Inter", sans-serif;
     --ock-radius-default: 0.75rem;
     --ock-radius-inner: 0.5rem;
 
@@ -235,7 +235,8 @@
 /* Stronger target: the specific OCK utility classes used on modal wallet options */
 [data-testid="ockModalContent"] .ock\:rounded-ock-default.ock\:text-base,
 [data-testid="ockModalContent"] button.ock\:rounded-ock-default.ock\:text-base,
-[data-testid="ockModalContent"] [role="button"].ock\:rounded-ock-default.ock\:text-base {
+[data-testid="ockModalContent"]
+  [role="button"].ock\:rounded-ock-default.ock\:text-base {
   border: 1px solid #1bf696 !important;
 }
 
@@ -255,7 +256,6 @@
   border-radius: 0.5rem !important;
   padding: 0.5rem 1rem !important;
   font-weight: bold !important;
-  
 }
 
 /* Enlarge app icon inside wallet modal */
@@ -317,8 +317,10 @@
 
 /* Also ensure dropdown account rows keep no borders */
 [data-testid*="ockWalletDropdown"] .ock\:rounded-ock-default.ock\:text-base,
-[data-testid*="ockWalletDropdown"] button.ock\:rounded-ock-default.ock\:text-base,
-[data-testid*="ockWalletDropdown"] [role="button"].ock\:rounded-ock-default.ock\:text-base {
+[data-testid*="ockWalletDropdown"]
+  button.ock\:rounded-ock-default.ock\:text-base,
+[data-testid*="ockWalletDropdown"]
+  [role="button"].ock\:rounded-ock-default.ock\:text-base {
   border: none !important;
 }
 

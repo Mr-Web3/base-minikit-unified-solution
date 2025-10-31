@@ -1,6 +1,28 @@
-# Waitlist Mini App Quickstart
+# Base Mini App Quickstart - Reference Implementation
 
-This is a demo Mini App application built using OnchainKit and the Farcaster SDK. Build a waitlist sign-up mini app for your company that can be published to the Base app and Farcaster.
+> 📚 **REFERENCE ONLY** - This is the official Base Mini App starter kit preserved for reference and comparison purposes.
+
+## 🎯 Purpose
+
+This folder contains the **official Base starter kit** that demonstrates the current Base approach. It is preserved here for:
+- **Reference**: Understanding the official Base starter structure
+- **Comparison**: Comparing with the working unified solution
+- **Analysis**: Identifying limitations and areas for improvement
+
+## ⚠️ Important Notice
+
+**This starter kit only works in Base App context** and does not support:
+- ❌ Standalone web dApp functionality
+- ❌ Farcaster wallet connections properly
+- ❌ Cross-platform compatibility
+
+For a working unified solution that supports all platforms, see:
+- ✅ **Working Solution**: [`../DBRO-MINI-KIT-STARTER/`](../DBRO-MINI-KIT-STARTER/) - Fully functional across all platforms
+- ⚠️ **Merge Attempt**: [`../basekit-starter-improved/`](../basekit-starter-improved/) - Attempting to merge working solution
+
+## 📋 Overview
+
+This is a demo Mini App application built using OnchainKit and the Farcaster SDK. It demonstrates how to build a waitlist sign-up mini app that can be published to the Base app.
 
 ## Prerequisites
 
@@ -131,3 +153,26 @@ To publish your app, create a post in the Base app with your app's URL.
 ## Learn More
 
 For detailed step-by-step instructions, see the [Create a Mini App tutorial](https://docs.base.org/docs/mini-apps/quickstart/create-new-miniapp/) in the Base documentation.
+
+## 📚 Related Documentation
+
+This repository contains analysis and improvements to this starter kit:
+
+- **Main README**: [`../README.md`](../README.md) - Overview of the unified solution project
+- **Contributing Guide**: [`../CONTRIBUTING.md`](../CONTRIBUTING.md) - How to contribute to improvements
+- **Working Solution**: [`../DBRO-MINI-KIT-STARTER/`](../DBRO-MINI-KIT-STARTER/) - Unified solution that works across all platforms
+- **Technical Analysis**: [`../TECH_PAPER_UNIFIED_DAPP_MINIAPP.md`](../TECH_PAPER_UNIFIED_DAPP_MINIAPP.md) - Deep dive into limitations and solutions
+
+## 🎯 Limitations Addressed in Unified Solution
+
+The unified solution (`../DBRO-MINI-KIT-STARTER/`) addresses these limitations:
+
+1. **Cross-Platform Support**: Works in web browsers, Base App, and Farcaster
+2. **Complete Wallet Integration**: Full UI implementation with selective wallet support
+3. **Sponsored Transactions**: Paymaster integration for gas-free transactions
+4. **Better Developer Experience**: Automated manifest management, local development support
+5. **Production-Ready Features**: Comprehensive API endpoints, notifications, smart contracts
+
+---
+
+**Note**: This folder is kept for reference. For production use, consider the unified solution in `../DBRO-MINI-KIT-STARTER/`.

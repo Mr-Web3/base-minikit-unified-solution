@@ -122,9 +122,9 @@ const StakingHome: React.FC = () => {
           Earn More With Your <a className="text-(--app-accent)">$DBRO</a>
         </h1>
         <p className="text-lg md:text-xl text-(--app-foreground-muted) mb-8">
-          Stake your <a className="text-(--app-accent)">$DBRO</a> tokens to earn high
-          rewards, unlock exclusive NFT utilities, and join the next wave of
-          Web3 innovation.
+          Stake your <a className="text-(--app-accent)">$DBRO</a> tokens to earn
+          high rewards, unlock exclusive NFT utilities, and join the next wave
+          of Web3 innovation.
         </p>
         <Link href="/staking">
           <button className="bg-[#111] text-white font-bold px-6 py-2 border border-(--app-accent) rounded-xl text-lg shadow-lg hover:scale-105 transition-transform flex items-center gap-2 mx-auto mb-8">
@@ -193,17 +193,18 @@ const StakingHome: React.FC = () => {
               2. Stake <a className="text-(--app-accent)">$DBRO</a>
             </span>
             <span className="text-(--app-foreground-muted)">
-              Choose how much <a className="text-(--app-accent)">$DBRO</a> to stake and
-              confirm the transaction.
+              Choose how much <a className="text-(--app-accent)">$DBRO</a> to
+              stake and confirm the transaction.
             </span>
           </div>
           <div className="flex flex-col items-center text-center">
             <FaGift size={36} style={{ color: ACCENT }} className="mb-2" />
             <span className="font-semibold mb-1">3. Claim Rewards</span>
             <span className="text-(--app-foreground-muted)">
-              When you reach <a className="text-(--app-accent)">100K $DBRO</a> rewards,
-              claim them to mint a <a className="text-(--app-accent)">$DBRO</a> Hybrid
-              NFT with wrapped rewards.
+              When you reach <a className="text-(--app-accent)">100K $DBRO</a>{" "}
+              rewards, claim them to mint a{" "}
+              <a className="text-(--app-accent)">$DBRO</a> Hybrid NFT with
+              wrapped rewards.
             </span>
           </div>
           <div className="flex flex-col items-center text-center">

@@ -22,11 +22,11 @@ export function RootProvider({ children }: { children: ReactNode }) {
           preference: "all",
           termsUrl: "https://www.decentralbros.io/terms",
           privacyUrl: "https://www.decentralbros.io/privacy",
-          supportedWallets: { 
-            rabby: false, 
-            trust: true, 
-            frame: false, 
-          }, 
+          supportedWallets: {
+            rabby: false,
+            trust: true,
+            frame: false,
+          },
         },
       }}
       miniKit={{

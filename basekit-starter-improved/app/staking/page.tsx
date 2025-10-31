@@ -1040,7 +1040,9 @@ const Staking: React.FC = () => {
                 {treasuryBalance && typeof treasuryBalance === "bigint" && (
                   <div className="w-full flex justify-center md:justify-center">
                     <DBROPriceConverter
-                      amount={Number(formatUnits(treasuryBalance, 8)).toString()}
+                      amount={Number(
+                        formatUnits(treasuryBalance, 8),
+                      ).toString()}
                       className="text-gray-400 text-xs"
                     />
                   </div>
@@ -1083,9 +1085,9 @@ const Staking: React.FC = () => {
               </h3>
               <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-2 space-y-1 sm:space-y-0">
                 <span className="text-white font-bold text-lg md:text-xl">
-                  {rewardRate 
-                    ? typeof rewardRate === "bigint" 
-                      ? `${Number(rewardRate)}%` 
+                  {rewardRate
+                    ? typeof rewardRate === "bigint"
+                      ? `${Number(rewardRate)}%`
                       : `${rewardRate}%`
                     : "Loading..."}
                 </span>
@@ -1119,7 +1121,9 @@ const Staking: React.FC = () => {
                     {contractTokens && typeof contractTokens === "bigint" && (
                       <div className="w-full flex justify-center md:justify-end">
                         <DBROPriceConverter
-                          amount={Number(formatUnits(contractTokens, 8)).toString()}
+                          amount={Number(
+                            formatUnits(contractTokens, 8),
+                          ).toString()}
                           className="text-gray-400 text-xs"
                         />
                       </div>
@@ -1144,7 +1148,9 @@ const Staking: React.FC = () => {
                     {requiredDBRO && typeof requiredDBRO === "bigint" && (
                       <div className="w-full flex justify-center md:justify-end">
                         <DBROPriceConverter
-                          amount={Number(formatUnits(requiredDBRO, 8)).toString()}
+                          amount={Number(
+                            formatUnits(requiredDBRO, 8),
+                          ).toString()}
                           className="text-gray-400 text-xs"
                         />
                       </div>
@@ -1903,8 +1909,7 @@ const Staking: React.FC = () => {
             </div>
           </div>
         </div>
-      )
-    }
+      )}
     </div>
   );
 };
