@@ -102,6 +102,9 @@ Our `basekit-starter-improved` shows:
 - Where the issues are in the new structure
 - How to fix the regressions
 
+**🔗 Live Demo**: [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)  
+**Current Status**: ✅ Base App works | ⚠️ Web dApp partial | ❌ Farcaster needs fixing (this demonstrates the exact issues we're solving)
+
 ### Clear Documentation
 
 We've documented:
@@ -168,4 +171,10 @@ We're open to:
 ---
 
 **This isn't just about our codebase - it's about the entire Base ecosystem and ensuring developers can build applications that work for all their users, regardless of how they access the app.**
+
+## Contact
+
+**Built by**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)
 

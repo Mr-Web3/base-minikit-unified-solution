@@ -67,7 +67,26 @@ This repository documents and demonstrates a critical regression in cross-platfo
 - Developer feedback to Base team: `DEVELOPER_FEEDBACK_BASE_TEAM.md`
 - Root README overview: `README.md`
 
+## 🔗 Live Demo Available
+
+**See it in action**: [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)
+
+**Current Platform Status**:
+- ✅ **Base App** - Works! Test in Base App preview or mobile app
+- ⚠️ **Web dApp** - Partially working, demonstrates progress
+- ❌ **Farcaster** - Not fully working yet (SafeArea/wallet issues - this is what needs fixing!)
+
+This live deployment demonstrates the current state of the merge effort and shows exactly what still needs to be resolved.
+
 ## How to review quickly
+
+**Option 1: Test Live Deployment** (Recommended for quick review)
+1. Visit [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)
+2. Test in Base App - should work fully
+3. Test as web dApp - partially working
+4. Test in Farcaster - issues visible, demonstrates what needs fixing
+
+**Option 2: Run Locally**
 1. Run locally as a web app
    - `npm i && npm run dev`
 2. Configure sponsored transactions (optional)
@@ -127,8 +146,9 @@ If this isn't addressed:
 4. Check `basekit-starter-improved/` to see our merge attempt and remaining issues
 
 ## Contact
-- Justin Taylor, Decentral Bros
-- Website: https://www.dbro.dev
-- Email: contact@dbro.dev
+
+**Built by**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)
 
 If helpful, we're happy to upstream changes, contribute docs, or prepare a PR against the official starter kit to add a unified option alongside the current simple template.

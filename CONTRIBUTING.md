@@ -40,6 +40,8 @@ We're creating a **unified codebase** that automatically detects the runtime env
 
 - ✅ **`DBRO-MINI-KIT-STARTER/`**: This is the **working solution** that successfully runs across all three platforms (dApp, Base App, Farcaster)
 - ⚠️ **`basekit-starter-improved/`**: An attempt to merge the working solution into the new Base starter kit structure - **needs work to fully function across all platforms**
+  - **🔗 Live Demo**: [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)
+  - **Status**: ✅ Base App works | ⚠️ Web dApp partial | ❌ Farcaster not fully working (help needed!)
 - 📚 **`basekit-starter-main/`**: The official Base starter kit reference - **only works in Base App**, doesn't support dApp or Farcaster wallet connections
 
 ### The Challenge
@@ -537,7 +539,13 @@ If you have questions or need help:
 1. Check existing documentation
 2. Review the working solution (`DBRO-MINI-KIT-STARTER`)
 3. Open an issue on GitHub
-4. Contact: [contact@dbro.dev](mailto:contact@dbro.dev)
+4. Contact: [justin@noviclabs.com](mailto:justin@noviclabs.com)
+
+## About
+
+**Built by**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)
 
 ## Recognition
 

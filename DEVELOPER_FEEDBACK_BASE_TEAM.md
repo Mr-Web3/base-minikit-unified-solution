@@ -310,10 +310,9 @@ This approach would give developers the choice between simplicity and comprehens
 
 ## Contact Information
 
-**Developer**: Justin Taylor, Decentral Bros  
-**Email**: [contact@dbro.dev](mailto:contact@dbro.dev)  
-**Website**: [https://www.dbro.dev](https://www.dbro.dev)  
-**GitHub**: [@your-username](https://github.com/your-username)
+**Built by**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)
 
 ---
 

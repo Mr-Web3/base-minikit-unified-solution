@@ -335,7 +335,8 @@ The Base team should consider adopting this unified approach as an official opti
 
 ---
 
-**Author**: Justin Taylor, Decentral Bros  
+**Author**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)  
 **Date**: December 2024  
-**Version**: 1.0  
-**Contact**: [https://www.dbro.dev](https://www.dbro.dev)
+**Version**: 1.0

@@ -720,3 +720,11 @@ The Base team should consider adopting this unified approach as an official opti
 **Documentation**: Comprehensive README with setup instructions  
 **Examples**: Complete working examples of all features  
 **Support**: Active community support and documentation
+
+---
+
+## Contact
+
+**Built by**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)

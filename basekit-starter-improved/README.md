@@ -2,14 +2,25 @@
 
 > ⚠️ **WORK IN PROGRESS** - This is an attempt to merge the working unified solution from `DBRO-MINI-KIT-STARTER/` into the new Base starter kit structure. **Currently has platform compatibility issues that need to be resolved.**
 
+## 🔗 Live Demo
+
+**Live Deployment**: [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)
+
+**Current Status** (as of latest deployment):
+- ✅ **Base App** - Works! Test in Base App preview or mobile app
+- ⚠️ **Web dApp** - Partially working, needs improvement
+- ❌ **Farcaster** - **Not fully working yet** - SafeArea and wallet connection issues persist (help needed!)
+
+You can test the current state across all three platforms. This demonstrates where we are in the merge process and what still needs to be fixed.
+
 ## 🎯 Project Status
 
 **Current Status**: ⚠️ **Incomplete Merge** - Cross-platform functionality needs work
 
 This folder represents an ongoing effort to bring the working cross-platform patterns from `../DBRO-MINI-KIT-STARTER/` into the new Base starter kit structure. The goal is to create a unified solution that works across:
-- ✅ **Base App** - Should work (based on Base starter)
+- ✅ **Base App** - **Works!** (confirmed via live deployment)
 - ⚠️ **Web dApp** - Partial, needs improvement
-- ❌ **Farcaster** - **Issues with SafeArea and wallet connections**
+- ❌ **Farcaster** - **Issues with SafeArea and wallet connections** (not fully working yet)
 
 ## 📋 What This Is
 

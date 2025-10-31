@@ -60,12 +60,19 @@ This is the **original working solution** that successfully runs on:
 #### ⚠️ **`basekit-starter-improved/`** - WORK IN PROGRESS
 **Status**: Attempting to merge working solution into new Base starter structure
 
+**🔗 Live Demo**: [https://basekit-starter-improved.vercel.app/](https://basekit-starter-improved.vercel.app/)
+
+**Current Platform Status**:
+- ✅ **Base App** - Works! 
+- ⚠️ **Web dApp** - Partially working
+- ❌ **Farcaster** - Not fully working yet (SafeArea/wallet issues - help needed!)
+
 This is an **ongoing merge effort** to bring the working patterns from `DBRO-MINI-KIT-STARTER` into the new Base starter kit structure. Currently experiencing issues with:
 - SafeArea handling affecting Farcaster wallet connections
 - Platform detection not fully working across all contexts
 - Provider configuration differences
 
-**Use this for**: Contributing to the unified solution by fixing platform compatibility issues.
+**Use this for**: Contributing to the unified solution by fixing platform compatibility issues. Test the live deployment to see current state!
 
 #### 📚 **`basekit-starter-main/`** - REFERENCE ONLY
 **Status**: Official Base starter kit (Base App only)
@@ -254,9 +261,9 @@ We recommend the Base team consider:
 
 ## 💬 Contact & Support
 
-**Project Lead**: Justin Taylor, Decentral Bros  
-**Website**: [justin.dbro.dev](https://justin.dbro.dev/)  
-**GitHub**: [@Mr-Web3](https://github.com/Mr-Web3)
+**Project Lead**: Justin Taylor  
+**X (Twitter)**: [@Decentralbros_](https://www.x.com/Decentralbros_)  
+**Email**: [justin@noviclabs.com](mailto:justin@noviclabs.com)
 
 For questions about:
 - **Contributing**: See [`CONTRIBUTING.md`](CONTRIBUTING.md)
